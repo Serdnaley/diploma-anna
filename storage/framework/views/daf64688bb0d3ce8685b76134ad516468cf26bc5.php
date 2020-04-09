@@ -22,7 +22,7 @@
                 <div class="links">
                     <?php if(Route::has('login')): ?>
                         <?php if(auth()->guard()->check()): ?>
-                            <a href="<?php echo e(route('home')); ?>">Home</a>
+                            <a href="<?php echo e(route('topic.index')); ?>">News</a>
                         <?php else: ?>
                             <a href="<?php echo e(route('login')); ?>">Login</a>
 
