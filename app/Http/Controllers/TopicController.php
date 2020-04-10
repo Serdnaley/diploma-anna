@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Topic;
 use App\TopicCategory;
 use Illuminate\Http\Request;
@@ -82,9 +83,11 @@ class TopicController extends Controller
     public function show(Topic $topic)
     {
         $topic->load(['author', 'category']);
+        $comments = Comment::with(['author'])->where('topic_id', $topic->id)->get();
 
         return view('topic.show', [
             'topic' => $topic,
+            'comments' => $comments,
         ]);
     }
 

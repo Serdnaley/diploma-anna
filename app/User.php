@@ -33,6 +33,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read string $initials
  */
 class User extends Authenticatable
 {
@@ -44,7 +45,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'role', 'password',
+        'name', 
+        'email', 
+        'role', 
+        'color', 
+        'password',
     ];
 
     /**
@@ -63,6 +68,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'initials',
     ];
 
     /**
@@ -90,5 +99,20 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    /**
+     * User initials
+     *
+     * @return string
+     */
+    public function getInitialsAttribute() {
+        $words = preg_split("/[\s,_-]+/", $this->name);
+        $initials = '';
+
+        if (isset($words[0])) $initials .= mb_strtoupper($words[0][0]);
+        if (isset($words[1])) $initials .= mb_strtoupper($words[1][0]);
+
+        return $initials;
     }
 }

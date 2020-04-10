@@ -14,7 +14,7 @@
 
 html, body {
     background-color: #fff;
-    color: #636b6f;
+    color: $secondary;
     font-weight: 200;
     height: 100vh;
     margin: 0;
@@ -52,7 +52,7 @@ html, body {
     }
 
     .links > a {
-        color: #636b6f;
+        color: $secondary;
         padding: 0 25px;
         font-size: 13px;
         font-weight: 600;
@@ -63,5 +63,85 @@ html, body {
 
     .m-b-md {
         margin-bottom: 30px;
+    }
+}
+
+@each $index,$color in (
+    'indigo': $indigo,
+    'purple': $purple,
+    'red': $red,
+) {
+    .bg-#{$index} {
+        background: $color;
+    }
+    .color-#{$index} {
+        color: $color;
+    }
+}
+
+@each $index,$color in (
+    'blue': $blue,
+    'pink': $pink,
+    'orange': $orange,
+    'yellow': $yellow,
+    'green': $green,
+    'teal': $teal,
+    'cyan': $cyan,
+) {
+    .bg-#{$index} {
+        background: $color;
+    }
+    .color-#{$index} {
+        color: darken($color, 30);
+    }
+}
+
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    background: $secondary;
+    color: $white;
+    border-radius: 50%;
+    user-select: none;
+
+    @each $index,$color in (
+        'indigo': $indigo,
+        'purple': $purple,
+        'red': $red,
+    ) {
+        &--#{$index} {
+            background: $color;
+            color: lighten($color, 30);
+        }
+    }
+
+    @each $index,$color in (
+        'blue': $blue,
+        'pink': $pink,
+        'orange': $orange,
+        'yellow': $yellow,
+        'green': $green,
+        'teal': $teal,
+        'cyan': $cyan,
+    ) {
+        &--#{$index} {
+            background: $color;
+            color: darken($color, 30);
+        }
+    }
+
+    &__initials {
+
+    }
+
+    &__name {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 15px;
+        line-height: 1;
     }
 }

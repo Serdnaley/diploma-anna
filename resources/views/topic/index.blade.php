@@ -9,7 +9,7 @@
                 <h1>All topics</h1>
             </div>
             <div class="col-auto">
-                <a href="{{ route('topic.create') }}" class="btn btn-primary">
+                <a href="{{ route('topic.create') }}" class="btn btn-link">
                     Create topic
                 </a>
             </div>
@@ -29,14 +29,14 @@
                                 </h5>
                             </a>
                             <p class="card-text">
-                            <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
-                                {{ $topic->created_at->format('j F, Y') }}
-                            </span>
+                                <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
+                                    {{ $topic->created_at->format('j F, Y') }}
+                                </span>
                                 <span class="text-muted">by</span>
                                 <a href="{{ route('user.show', ['user' => $topic->author]) }}">
                                     {{ $topic->author->name }}
                                 </a>
-                                <span class="text-muted">&bull;</span>
+                                <span class="text-muted mx-2">&bull;</span>
                                 <span class="text-muted">Category:</span>
                                 <a href="{{ route('topic_category.show', ['topic_category' => $topic->category]) }}">
                                     {{ $topic->category->name }}

@@ -14,6 +14,7 @@
                 <h1>Edit topic</h1>
             </div>
             <div class="col-auto">
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $topic)): ?>
                     <confirm-action
                         @confirm="$refs['form-topic-delete'].submit()"
                         confirm-button-text="Delete"
@@ -24,6 +25,7 @@
                         </div>
                         Are you sure want to delete "<?php echo e($topic->title); ?>"?
                     </confirm-action>
+                <?php endif; ?>
                 <a href="<?php echo e(route('topic.show', ['topic' => $topic])); ?>" class="btn btn-primary">
                     View topic
                 </a>

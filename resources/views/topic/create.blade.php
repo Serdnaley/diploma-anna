@@ -27,12 +27,23 @@
 
                     <div class="form-group">
                         <label for="topic-create-title">Title</label>
-                        <input type="text" class="form-control" id="topic-create-title" name="title">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="topic-create-title"
+                            name="title"
+                            required
+                        >
                     </div>
 
                     <div class="form-group">
                         <label for="topic-create-category">Category</label>
-                        <select class="form-control" id="topic-create-category" name="category_id">
+                        <select
+                            class="form-control"
+                            id="topic-create-category"
+                            name="category_id"
+                            required
+                        >
                             @foreach($topic_categories as $category)
                                 <option value="{{ $category->id }}">
                                     {{ $category->name }}
