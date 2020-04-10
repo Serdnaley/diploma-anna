@@ -84,26 +84,30 @@
                                     </h6>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="<?php echo e(route('comment.edit', ['comment' => $comment])); ?>">
-                                        Edit
-                                    </a>
-                                    <span class="text-secondary mx-2">&bull;</span>
-                                    <confirm-action
-                                        @confirm="function () {
-                                            $refs['form-topic-delete'].setAttribute(
-                                                'action',
-                                                '<?php echo e(route('comment.destroy', ['comment' => $comment])); ?>'
-                                            );
-                                            $refs['form-topic-delete'].submit();
-                                        }"
-                                        confirm-button-text="Delete"
-                                        confirm-button-class="btn btn-danger"
-                                    >
-                                        <a href="#" class="text-danger" slot="reference">
-                                            Delete
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $comment)): ?>
+                                        <a href="<?php echo e(route('comment.edit', ['comment' => $comment])); ?>">
+                                            Edit
                                         </a>
-                                        Are you sure want to delete comment of <?php echo e($comment->author->name); ?>?
-                                    </confirm-action>
+                                    <?php endif; ?>
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $comment)): ?>
+                                        <span class="text-secondary mx-2">&bull;</span>
+                                        <confirm-action
+                                            @confirm="function () {
+                                                $refs['form-topic-delete'].setAttribute(
+                                                    'action',
+                                                    '<?php echo e(route('comment.destroy', ['comment' => $comment])); ?>'
+                                                );
+                                                $refs['form-topic-delete'].submit();
+                                            }"
+                                            confirm-button-text="Delete"
+                                            confirm-button-class="btn btn-danger"
+                                        >
+                                            <a href="#" class="text-danger" slot="reference">
+                                                Delete
+                                            </a>
+                                            Are you sure want to delete comment of <?php echo e($comment->author->name); ?>?
+                                        </confirm-action>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <?php echo e($comment->text); ?>

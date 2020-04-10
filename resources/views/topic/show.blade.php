@@ -82,26 +82,30 @@
                                     </h6>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="{{ route('comment.edit', ['comment' => $comment]) }}">
-                                        Edit
-                                    </a>
-                                    <span class="text-secondary mx-2">&bull;</span>
-                                    <confirm-action
-                                        @confirm="function () {
-                                            $refs['form-topic-delete'].setAttribute(
-                                                'action',
-                                                '{{ route('comment.destroy', ['comment' => $comment]) }}'
-                                            );
-                                            $refs['form-topic-delete'].submit();
-                                        }"
-                                        confirm-button-text="Delete"
-                                        confirm-button-class="btn btn-danger"
-                                    >
-                                        <a href="#" class="text-danger" slot="reference">
-                                            Delete
+                                    @can('update', $comment)
+                                        <a href="{{ route('comment.edit', ['comment' => $comment]) }}">
+                                            Edit
                                         </a>
-                                        Are you sure want to delete comment of {{ $comment->author->name }}?
-                                    </confirm-action>
+                                    @endcan
+                                    @can('delete', $comment)
+                                        <span class="text-secondary mx-2">&bull;</span>
+                                        <confirm-action
+                                            @confirm="function () {
+                                                $refs['form-topic-delete'].setAttribute(
+                                                    'action',
+                                                    '{{ route('comment.destroy', ['comment' => $comment]) }}'
+                                                );
+                                                $refs['form-topic-delete'].submit();
+                                            }"
+                                            confirm-button-text="Delete"
+                                            confirm-button-class="btn btn-danger"
+                                        >
+                                            <a href="#" class="text-danger" slot="reference">
+                                                Delete
+                                            </a>
+                                            Are you sure want to delete comment of {{ $comment->author->name }}?
+                                        </confirm-action>
+                                    @endcan
                                 </div>
                             </div>
                             {{ $comment->text }}

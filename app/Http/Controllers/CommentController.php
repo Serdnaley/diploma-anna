@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Comment::class, 'comment');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -24,14 +30,15 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -61,7 +68,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -83,13 +90,29 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Comment $comment
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required|string|max:255',
+            'topic_id' => 'required|int',
+        ]);
+
+        $request['author_id'] = \Auth::id();
+
+        $comment->update($request->only([
+            'text',
+            'author_id',
+            'topic_id',
+        ]));
+
+        return redirect()
+            ->route('topic.show', ['topic' => $comment->topic_id])
+            ->withSuccess(['Comment successfully updated!']);
     }
 
     /**
