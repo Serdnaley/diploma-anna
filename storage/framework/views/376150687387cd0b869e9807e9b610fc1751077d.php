@@ -14,19 +14,23 @@
                 <h1><?php echo e($topic->title); ?></h1>
             </div>
             <div class="col-auto">
-                <a href="<?php echo e(route('topic.edit', ['topic' => $topic])); ?>" class="btn btn-primary">
-                    Edit
-                </a>
-                <confirm-action
-                    @confirm="$refs['form-topic-delete'].submit()"
-                    confirm-button-text="Delete"
-                    confirm-button-class="btn btn-danger"
-                >
-                    <div class="btn btn-outline-danger" slot="reference">
-                        Delete
-                    </div>
-                    Are you sure want to delete "<?php echo e($topic->title); ?>"?
-                </confirm-action>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $topic)): ?>
+                    <confirm-action
+                        @confirm="$refs['form-topic-delete'].submit()"
+                        confirm-button-text="Delete"
+                        confirm-button-class="btn btn-danger"
+                    >
+                        <div class="btn btn-link text-danger" slot="reference">
+                            Delete topic
+                        </div>
+                        Are you sure want to delete "<?php echo e($topic->title); ?>"?
+                    </confirm-action>
+                <?php endif; ?>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $topic)): ?>
+                    <a href="<?php echo e(route('topic.edit', ['topic' => $topic])); ?>" class="btn btn-primary">
+                        Edit topic
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
 

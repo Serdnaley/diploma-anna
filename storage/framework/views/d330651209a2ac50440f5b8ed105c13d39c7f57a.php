@@ -14,19 +14,19 @@
                 <h1>Edit topic</h1>
             </div>
             <div class="col-auto">
-                <a href="<?php echo e(route('topic.show', ['topic' => $topic])); ?>" class="btn btn-primary">
-                    View topic
-                </a>
-                <confirm-action
+                    <confirm-action
                         @confirm="$refs['form-topic-delete'].submit()"
                         confirm-button-text="Delete"
                         confirm-button-class="btn btn-danger"
-                >
-                    <div class="btn btn-outline-danger" slot="reference">
-                        Delete
-                    </div>
-                    Are you sure want to delete "<?php echo e($topic->title); ?>"?
-                </confirm-action>
+                    >
+                        <div class="btn btn-link text-danger" slot="reference">
+                            Delete topic
+                        </div>
+                        Are you sure want to delete "<?php echo e($topic->title); ?>"?
+                    </confirm-action>
+                <a href="<?php echo e(route('topic.show', ['topic' => $topic])); ?>" class="btn btn-primary">
+                    View topic
+                </a>
             </div>
         </div>
 
@@ -48,7 +48,8 @@
                         <label for="topic-create-category">Category</label>
                         <select class="form-control" id="topic-create-category" name="category_id">
                             <?php $__currentLoopData = $topic_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($category->id); ?>" <?php echo e($topic->category_id === $category->id ? 'selected' : ''); ?>>
+                                <option
+                                    value="<?php echo e($category->id); ?>" <?php echo e($topic->category_id === $category->id ? 'selected' : ''); ?>>
                                     <?php echo e($category->name); ?>
 
                                 </option>
@@ -72,10 +73,10 @@
         </div>
 
         <form
-                action="<?php echo e(route('topic.destroy', ['topic' => $topic])); ?>"
-                method="POST"
-                class="d-none"
-                ref="form-topic-delete"
+            action="<?php echo e(route('topic.destroy', ['topic' => $topic])); ?>"
+            method="POST"
+            class="d-none"
+            ref="form-topic-delete"
         >
             <?php echo csrf_field(); ?>
             <?php echo method_field('DELETE'); ?>

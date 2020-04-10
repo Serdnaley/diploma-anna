@@ -44,7 +44,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'role', 'password',
     ];
 
     /**
@@ -64,4 +64,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * All available roles
+     *
+     * @var array
+     */
+    protected $roles = [
+        'admin',
+        'user',
+    ];
+
+    /**
+     * Проверяет есть ли у пользователя роль из переданных
+     *
+     * @param $roles string|array Roles
+     *
+     * @return bool
+     */
+    public function has_role($roles) {
+        $roles = (array) $roles;
+
+        foreach($roles as $role) {
+            if ( $role == $this->role ) return true;
+        }
+
+        return false;
+    }
 }

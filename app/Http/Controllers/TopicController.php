@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->authorizeResource(Topic::class, 'topic');
+    }
+
     /**
      * Display a listing of the resource.
      *

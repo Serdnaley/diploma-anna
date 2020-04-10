@@ -16,19 +16,21 @@
                 <h1>Edit topic</h1>
             </div>
             <div class="col-auto">
-                <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-primary">
-                    View topic
-                </a>
-                <confirm-action
+                @can('delete', $topic)
+                    <confirm-action
                         @confirm="$refs['form-topic-delete'].submit()"
                         confirm-button-text="Delete"
                         confirm-button-class="btn btn-danger"
-                >
-                    <div class="btn btn-outline-danger" slot="reference">
-                        Delete
-                    </div>
-                    Are you sure want to delete "{{ $topic->title }}"?
-                </confirm-action>
+                    >
+                        <div class="btn btn-link text-danger" slot="reference">
+                            Delete topic
+                        </div>
+                        Are you sure want to delete "{{ $topic->title }}"?
+                    </confirm-action>
+                @endcan
+                <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-primary">
+                    View topic
+                </a>
             </div>
         </div>
 
@@ -50,7 +52,8 @@
                         <label for="topic-create-category">Category</label>
                         <select class="form-control" id="topic-create-category" name="category_id">
                             @foreach($topic_categories as $category)
-                                <option value="{{ $category->id }}" {{ $topic->category_id === $category->id ? 'selected' : '' }}>
+                                <option
+                                    value="{{ $category->id }}" {{ $topic->category_id === $category->id ? 'selected' : '' }}>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
@@ -73,10 +76,10 @@
         </div>
 
         <form
-                action="{{ route('topic.destroy', ['topic' => $topic]) }}"
-                method="POST"
-                class="d-none"
-                ref="form-topic-delete"
+            action="{{ route('topic.destroy', ['topic' => $topic]) }}"
+            method="POST"
+            class="d-none"
+            ref="form-topic-delete"
         >
             @csrf
             @method('DELETE')
