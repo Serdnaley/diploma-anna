@@ -30,7 +30,7 @@
                     <span>C</span>
                     <span>a</span>
                     <span>t</span>
-                    <span>o</span>
+                    <span>'o'</span>
                     <span>b</span>
                     <span>o</span>
                     <span>o</span>

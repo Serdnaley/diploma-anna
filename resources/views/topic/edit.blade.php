@@ -15,6 +15,21 @@
             <div class="col">
                 <h1>Edit topic</h1>
             </div>
+            <div class="col-auto">
+                <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-primary">
+                    View topic
+                </a>
+                <confirm-action
+                        @confirm="$refs['form-topic-delete'].submit()"
+                        confirm-button-text="Delete"
+                        confirm-button-class="btn btn-danger"
+                >
+                    <div class="btn btn-outline-danger" slot="reference">
+                        Delete
+                    </div>
+                    Are you sure want to delete "{{ $topic->title }}"?
+                </confirm-action>
+            </div>
         </div>
 
         <hr>
@@ -27,7 +42,8 @@
 
                     <div class="form-group">
                         <label for="topic-create-title">Title</label>
-                        <input type="text" class="form-control" id="topic-create-title" name="title" value="{{ $topic->title }}">
+                        <input type="text" class="form-control" id="topic-create-title" name="title"
+                               value="{{ $topic->title }}">
                     </div>
 
                     <div class="form-group">
@@ -55,6 +71,16 @@
                 </form>
             </div>
         </div>
+
+        <form
+                action="{{ route('topic.destroy', ['topic' => $topic]) }}"
+                method="POST"
+                class="d-none"
+                ref="form-topic-delete"
+        >
+            @csrf
+            @method('DELETE')
+        </form>
 
     </div>
 

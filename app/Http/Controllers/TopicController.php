@@ -127,11 +127,16 @@ class TopicController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Topic  $topic
+     * @param \App\Topic $topic
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Topic $topic)
     {
-        //
+        $topic->delete();
+
+        return redirect()
+            ->route('topic.index')
+            ->withSuccess(['Topic successfully deleted!']);
     }
 }

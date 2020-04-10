@@ -12,17 +12,24 @@
                     <span>C</span>
                     <span>a</span>
                     <span>t</span>
-                    <span>o</span>
+                    <span>'o'</span>
                     <span>b</span>
                     <span>o</span>
                     <span>o</span>
                     <span>k</span>
                 </div>
 
+                <?php if(auth()->guard()->check()): ?>
+                <div class="alert alert-info">
+                    Welcome, <?php echo e(\Auth::user()->name); ?>
+
+                </div>
+                <?php endif; ?>
+
                 <div class="links">
                     <?php if(Route::has('login')): ?>
                         <?php if(auth()->guard()->check()): ?>
-                            <a href="<?php echo e(route('topic.index')); ?>">News</a>
+                            <a href="<?php echo e(route('topic.index')); ?>">Go to topics</a>
                         <?php else: ?>
                             <a href="<?php echo e(route('login')); ?>">Login</a>
 

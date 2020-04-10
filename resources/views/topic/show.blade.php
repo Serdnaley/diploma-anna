@@ -19,6 +19,16 @@
                 <a href="{{ route('topic.edit', ['topic' => $topic]) }}" class="btn btn-primary">
                     Edit
                 </a>
+                <confirm-action
+                        @confirm="$refs['form-topic-delete'].submit()"
+                        confirm-button-text="Delete"
+                        confirm-button-class="btn btn-danger"
+                >
+                    <div class="btn btn-outline-danger" slot="reference">
+                        Delete
+                    </div>
+                    Are you sure want to delete "{{ $topic->title }}"?
+                </confirm-action>
             </div>
         </div>
 
@@ -40,6 +50,16 @@
                 </div>
             </div>
         </div>
+
+        <form
+                action="{{ route('topic.destroy', ['topic' => $topic]) }}"
+                method="POST"
+                class="d-none"
+                ref="form-topic-delete"
+        >
+            @csrf
+            @method('DELETE')
+        </form>
 
     </div>
 

@@ -21,11 +21,18 @@
 
         <div class="card mb-3">
             <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex justify-content-between">
                     <div>
-                        <h5 class="card-title">{{ $topic->title }}</h5>
+                        <a href="{{ route('topic.show', ['topic' => $topic]) }}">
+                            <h5 class="card-title">
+                                {{ $topic->title }}
+                            </h5>
+                        </a>
                         <p class="card-text">
-                            <span class="text-muted">Author:</span>
+                            <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
+                                {{ $topic->created_at->format('j F, Y') }}
+                            </span>
+                            <span class="text-muted">by</span>
                             <a href="{{ route('user.show', ['user' => $topic->author]) }}">
                                 {{ $topic->author->name }}
                             </a>
@@ -34,14 +41,10 @@
                             <a href="{{ route('topic_category.show', ['topic_category' => $topic->category]) }}">
                                 {{ $topic->category->name }}
                             </a>
-                            <span class="text-muted">&bull;</span>
-                            <a href="{{ route('topic.edit', ['topic' => $topic]) }}">
-                                Edit
-                            </a>
                         </p>
                     </div>
-                    <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-link">
-                        Show more
+                    <a href="{{ route('topic.edit', ['topic' => $topic]) }}">
+                        Edit
                     </a>
                 </div>
             </div>

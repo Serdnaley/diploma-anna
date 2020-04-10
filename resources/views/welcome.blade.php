@@ -14,17 +14,23 @@
                     <span>C</span>
                     <span>a</span>
                     <span>t</span>
-                    <span>o</span>
+                    <span>'o'</span>
                     <span>b</span>
                     <span>o</span>
                     <span>o</span>
                     <span>k</span>
                 </div>
 
+                @auth
+                <div class="alert alert-info">
+                    Welcome, {{ \Auth::user()->name }}
+                </div>
+                @endauth
+
                 <div class="links">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ route('topic.index') }}">News</a>
+                            <a href="{{ route('topic.index') }}">Go to topics</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
 
