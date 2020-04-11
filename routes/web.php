@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return redirect()->route('topic.index');
+})->name('home');
+
 Auth::routes();
 
 Route::resources([

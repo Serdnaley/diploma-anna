@@ -25,12 +25,23 @@
 
                     <div class="form-group">
                         <label for="topic-create-title">Title</label>
-                        <input type="text" class="form-control" id="topic-create-title" name="title">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="topic-create-title"
+                            name="title"
+                            required
+                        >
                     </div>
 
                     <div class="form-group">
                         <label for="topic-create-category">Category</label>
-                        <select class="form-control" id="topic-create-category" name="category_id">
+                        <select
+                            class="form-control"
+                            id="topic-create-category"
+                            name="category_id"
+                            required
+                        >
                             <?php $__currentLoopData = $topic_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($category->id); ?>">
                                     <?php echo e($category->name); ?>
