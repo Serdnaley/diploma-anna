@@ -8,9 +8,9 @@
                     </h5>
                 </a>
                 <p class="card-text">
-                                <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
-                                    {{ $topic->created_at->format('j F, Y') }}
-                                </span>
+                    <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
+                        {{ $topic->created_at->format('j F, Y') }}
+                    </span>
                     <span class="text-muted">by</span>
                     <a href="{{ route('user.show', ['user' => $topic->author]) }}">
                         {{ $topic->author->name }}
