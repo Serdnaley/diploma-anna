@@ -9,10 +9,10 @@
                     </h5>
                 </a>
                 <p class="card-text">
-                                <span title="<?php echo e($topic->created_at->format('d.m.Y H:i:s')); ?>">
-                                    <?php echo e($topic->created_at->format('j F, Y')); ?>
+                    <span title="<?php echo e($topic->created_at->format('d.m.Y H:i:s')); ?>">
+                        <?php echo e($topic->created_at->format('j F, Y')); ?>
 
-                                </span>
+                    </span>
                     <span class="text-muted">by</span>
                     <a href="<?php echo e(route('user.show', ['user' => $topic->author])); ?>">
                         <?php echo e($topic->author->name); ?>

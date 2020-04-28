@@ -45,7 +45,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item <?php echo e(\Route::currentRouteName() === 'topic.index' ? 'active' : ''); ?>">
+                            <a href="<?php echo e(route('topic.index')); ?>" class="nav-link">Topics</a>
+                        </li>
+                        <li class="nav-item <?php echo e(\Route::currentRouteName() === 'user.index' ? 'active' : ''); ?>">
+                            <a href="<?php echo e(route('user.index')); ?>" class="nav-link">Users</a>
+                        </li>
+                        <li class="nav-item <?php echo e(\Route::currentRouteName() === 'category.index' ? 'active' : ''); ?>">
+                            <a href="<?php echo e(route('category.index')); ?>" class="nav-link">Categories</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
