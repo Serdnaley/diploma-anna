@@ -16,7 +16,7 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -64,7 +64,7 @@ class CommentController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show(Comment $comment)
     {
@@ -75,7 +75,7 @@ class CommentController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Comment $comment)
     {

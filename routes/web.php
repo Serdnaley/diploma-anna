@@ -27,5 +27,5 @@ Route::resources([
     'user' => 'UserController',
     'topic' => 'TopicController',
     'comment' => 'CommentController',
-    'topic_category' => 'TopicCategoryController',
+    'category' => 'TopicCategoryController',
 ]);

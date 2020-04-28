@@ -2,29 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Topic;
 use App\TopicCategory;
 use Illuminate\Http\Request;
 
 class TopicCategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(TopicCategory::class, 'category');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $categories = TopicCategory::orderBy('created_at', 'desc')->paginate();
+
+        return view('category.index', [
+            'categories' => $categories
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -35,51 +46,83 @@ class TopicCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category = TopicCategory::create($request->only([
+            'name',
+        ]));
+
+        return redirect()
+            ->route('category.show', ['category' => $category])
+            ->withSuccess(['Category successfully created!']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\TopicCategory  $topicCategory
-     * @return \Illuminate\Http\Response
+     * @param  \App\TopicCategory  $category
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(TopicCategory $topicCategory)
+    public function show(TopicCategory $category)
     {
-        //
+
+        $topics = Topic::whereCategoryId($category->id)->get();
+
+        return view('category.show', [
+            'category' => $category,
+            'topics' => $topics,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TopicCategory  $topicCategory
-     * @return \Illuminate\Http\Response
+     * @param  \App\TopicCategory  $category
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(TopicCategory $topicCategory)
+    public function edit(TopicCategory $category)
     {
-        //
+        return view('category.edit', [
+            'category' => $category,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TopicCategory  $topicCategory
+     * @param  \App\TopicCategory  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TopicCategory $topicCategory)
+    public function update(Request $request, TopicCategory $category)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category->update($request->only([
+            'name',
+        ]));
+
+        return redirect()
+            ->route('category.show', ['category' => $category])
+            ->withSuccess(['Category successfully updated!']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TopicCategory  $topicCategory
+     * @param  \App\TopicCategory  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TopicCategory $topicCategory)
+    public function destroy(TopicCategory $category)
     {
-        //
+        $category->delete();
+
+        return redirect()
+            ->route('category.index')
+            ->withSuccess(['Category successfully deleted!']);
     }
 }

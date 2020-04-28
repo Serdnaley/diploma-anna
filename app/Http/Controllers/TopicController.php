@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->authorizeResource(Topic::class, 'topic');
@@ -18,15 +18,15 @@ class TopicController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        
+
         $topics = Topic::with(['category', 'author'])
             ->orderBy('created_at', 'desc')
             ->paginate();
-        
+
         return view('topic.index', [
             'topics' => $topics,
         ]);
@@ -35,13 +35,13 @@ class TopicController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        
+
         $topic_categories = TopicCategory::all();
-        
+
         return view('topic.create', [
             'topic_categories' => $topic_categories,
         ]);
@@ -78,7 +78,7 @@ class TopicController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Topic  $topic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Topic $topic)
     {
@@ -95,7 +95,7 @@ class TopicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Topic  $topic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Topic $topic)
     {
@@ -122,7 +122,7 @@ class TopicController extends Controller
             'title' => 'required|string|max:255',
             'category_id' => 'required|int',
         ]);
-        
+
         $topic->update($request->only([
             'title',
             'category_id',
