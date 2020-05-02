@@ -7,43 +7,48 @@
 @section('content')
 
     <div class="welcome-screen">
-        <div class="flex-center position-ref full-height">
+        <div class="position-ref full-height">
 
             <div class="content">
-                <div class="title main-logo m-b-md">
-                    <span>C</span>
-                    <span>a</span>
-                    <span>t</span>
-                    <span>'o'</span>
-                    <span>b</span>
-                    <span>o</span>
-                    <span>o</span>
-                    <span>k</span>
+
+                <div class="logo">
+                    @include('components.cat')
                 </div>
 
-                @auth
-                <div class="alert alert-info">
-                    Welcome, {{ \Auth::user()->name }}
-                </div>
-                @endauth
+                <div class="divider"></div>
 
-                <div class="links">
-                    @if (Route::has('login'))
-                        @auth
-                            <a href="{{ route('topic.index') }}">Go to topics</a>
-                        @else
-                            <a href="{{ route('login') }}">Login</a>
+                <div class="right">
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
-                            @endif
-                        @endauth
-                    @endif
+                    @auth
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="title"
+                            viewBox="0 0 500px 128px"
+                        >
+                            <text y="64">Welcome,</text>
+                            <text y="128">{{ \Auth::user()->name }}</text>
+                        </svg>
+                    @endauth
+
+                    <div class="links">
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ route('topic.index') }}">Start</a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Register</a>
+                                @endif
+                            @endauth
+                        @endif
+                    </div>
                 </div>
             </div>
+
         </div>
-        <p class="text-center">
-            Created by <a href="https://www.instagram.com/littlewarmtalks/" target="_blank">Anormous Human</a>
+        <p class="footer-text">
+            Created with LOVE by <a href="https://www.instagram.com/littlewarmtalks/" target="_blank">Anormous Human</a>
         </p>
     </div>
 

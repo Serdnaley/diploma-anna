@@ -1,0 +1,134 @@
+
+.logo-cat {
+    height: 100%;
+    width: 100%;
+
+    &-ear-1,
+    &-ear-2 {
+        fill: $logo-secondary;
+        transform-origin: 50% 50%;
+    }
+
+    &-ear-1 {
+        animation: 5s logo-cat-ear-1 infinite;
+    }
+
+    &-ear-2 {
+        animation: 4s 2s logo-cat-ear-2 infinite;
+    }
+
+    &-eye-1,
+    &-eye-2 {
+        fill: $logo-secondary;
+    }
+
+    &-pupil-1 {
+        animation: 5s logo-cat-pupil infinite;
+    }
+
+    &-pupil-2 {
+        animation: 10s 2.5s logo-cat-pupil infinite;
+    }
+
+    &-body {
+        fill: $logo-primary;
+    }
+
+    &-footer {
+        fill: $logo-primary;
+    }
+
+    &-bg {
+        fill: #000;
+    }
+
+    &-mustache-1,
+    &-mustache-2,
+    &-mustache-3,
+    &-mustache-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+    }
+
+    &-mustache-1 {
+        animation: logo-cat-mustache-1 5s linear infinite;
+    }
+
+    &-mustache-2 {
+        animation: logo-cat-mustache-2 3s 1s linear infinite;
+    }
+
+    &-mustache-3 {
+        animation: logo-cat-mustache-3 4s 1s linear infinite;
+    }
+
+    &-mustache-4 {
+        animation: logo-cat-mustache-4 5s linear infinite;
+    }
+
+}
+
+@keyframes logo-cat-ear-1 {
+    0%, 80% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    30%, 50% {
+        transform: translate(10px, -5px) rotate(2deg);
+    }
+}
+
+@keyframes logo-cat-ear-2 {
+    0%, 80% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    30%, 50% {
+        transform: translate(-10px, 5px) rotate(2deg);
+    }
+}
+
+@keyframes logo-cat-pupil {
+    0%, 45%, 55%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes logo-cat-mustache-1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(27px, -15px) rotate(5deg);
+    }
+}
+
+@keyframes logo-cat-mustache-2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(27px, -15px) rotate(5deg);
+    }
+}
+
+@keyframes logo-cat-mustache-3 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(27px, -20px) rotate(5deg);
+    }
+}
+
+@keyframes logo-cat-mustache-4 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(27px, -20px) rotate(5deg);
+    }
+}

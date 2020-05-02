@@ -5,44 +5,48 @@
 <?php $__env->startSection('content'); ?>
 
     <div class="welcome-screen">
-        <div class="flex-center position-ref full-height">
+        <div class="position-ref full-height">
 
             <div class="content">
-                <div class="title main-logo m-b-md">
-                    <span>C</span>
-                    <span>a</span>
-                    <span>t</span>
-                    <span>'o'</span>
-                    <span>b</span>
-                    <span>o</span>
-                    <span>o</span>
-                    <span>k</span>
+
+                <div class="logo">
+                    <?php echo $__env->make('components.cat', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
 
-                <?php if(auth()->guard()->check()): ?>
-                <div class="alert alert-info">
-                    Welcome, <?php echo e(\Auth::user()->name); ?>
+                <div class="divider"></div>
 
-                </div>
-                <?php endif; ?>
+                <div class="right">
 
-                <div class="links">
-                    <?php if(Route::has('login')): ?>
-                        <?php if(auth()->guard()->check()): ?>
-                            <a href="<?php echo e(route('topic.index')); ?>">Go to topics</a>
-                        <?php else: ?>
-                            <a href="<?php echo e(route('login')); ?>">Login</a>
+                    <?php if(auth()->guard()->check()): ?>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="title"
+                            viewBox="0 0 500px 128px"
+                        >
+                            <text y="64">Welcome,</text>
+                            <text y="128"><?php echo e(\Auth::user()->name); ?></text>
+                        </svg>
+                    <?php endif; ?>
 
-                            <?php if(Route::has('register')): ?>
-                                <a href="<?php echo e(route('register')); ?>">Register</a>
+                    <div class="links">
+                        <?php if(Route::has('login')): ?>
+                            <?php if(auth()->guard()->check()): ?>
+                                <a href="<?php echo e(route('topic.index')); ?>">Start</a>
+                            <?php else: ?>
+                                <a href="<?php echo e(route('login')); ?>">Login</a>
+
+                                <?php if(Route::has('register')): ?>
+                                    <a href="<?php echo e(route('register')); ?>">Register</a>
+                                <?php endif; ?>
                             <?php endif; ?>
                         <?php endif; ?>
-                    <?php endif; ?>
+                    </div>
                 </div>
             </div>
+
         </div>
-        <p class="text-center">
-            Created by <a href="https://www.instagram.com/littlewarmtalks/" target="_blank">Anormous Human</a>
+        <p class="footer-text">
+            Created with LOVE by <a href="https://www.instagram.com/littlewarmtalks/" target="_blank">Anormous Human</a>
         </p>
     </div>
 

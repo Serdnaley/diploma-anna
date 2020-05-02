@@ -11,59 +11,15 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 @import 'logo';
+@import 'logo-cat';
+@import 'welcome';
 
 html, body {
     background-color: #fff;
-    color: $secondary;
+    color: $text-color;
     font-weight: 200;
     height: 100vh;
     margin: 0;
-}
-
-.welcome-screen {
-    font-family: 'Nunito', sans-serif;
-
-    .full-height {
-        height: calc(100vh - 55px);
-    }
-
-    .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-
-    .position-ref {
-        position: relative;
-    }
-
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
-
-    .content {
-        text-align: center;
-    }
-
-    .title {
-        font-size: 84px;
-    }
-
-    .links > a {
-        color: $secondary;
-        padding: 0 25px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-    .m-b-md {
-        margin-bottom: 30px;
-    }
 }
 
 @each $index,$color in (
