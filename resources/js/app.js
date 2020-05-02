@@ -1,3 +1,19 @@
+
+document.addEventListener('mousemove', function (e) {
+    const {clientX, clientY} = e;
+    const cx = innerWidth / 2;
+    const cy = innerHeight / 2;
+    const x = (clientX - cx) / 100;
+    const y = (clientY - cy) / 100;
+    const items = document.querySelectorAll('.logo-cat-pupil');
+
+
+    for (item of items) {
+        item.style.transform = `translate(${x}px, ${y}px)`;
+    }
+})
+
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when

@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="welcome-screen">
+    <div class="welcome-screen" tabindex="-1">
         <div class="position-ref full-height">
 
             <div class="content">
@@ -19,21 +19,23 @@
 
                 <div class="right">
 
-                    @auth
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="title"
-                            viewBox="0 0 500px 128px"
-                        >
-                            <text y="64">Welcome,</text>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="title"
+                        viewBox="0 0 500 128"
+                    >
+                        <text y="64">Welcome,</text>
+                        @auth
                             <text y="128">{{ \Auth::user()->name }}</text>
-                        </svg>
-                    @endauth
+                        @else
+                            <text y="128">Dear Reader</text>
+                        @endauth
+                    </svg>
 
                     <div class="links">
                         @if (Route::has('login'))
                             @auth
-                                <a href="{{ route('topic.index') }}">Start</a>
+                                <a href="{{ route('topic.index') }}">Let's communicate</a>
                             @else
                                 <a href="{{ route('login') }}">Login</a>
 

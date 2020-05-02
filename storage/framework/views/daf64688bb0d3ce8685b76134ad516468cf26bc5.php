@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="welcome-screen">
+    <div class="welcome-screen" tabindex="-1">
         <div class="position-ref full-height">
 
             <div class="content">
@@ -17,21 +17,23 @@
 
                 <div class="right">
 
-                    <?php if(auth()->guard()->check()): ?>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="title"
-                            viewBox="0 0 500px 128px"
-                        >
-                            <text y="64">Welcome,</text>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="title"
+                        viewBox="0 0 500 128"
+                    >
+                        <text y="64">Welcome,</text>
+                        <?php if(auth()->guard()->check()): ?>
                             <text y="128"><?php echo e(\Auth::user()->name); ?></text>
-                        </svg>
-                    <?php endif; ?>
+                        <?php else: ?>
+                            <text y="128">Dear Reader</text>
+                        <?php endif; ?>
+                    </svg>
 
                     <div class="links">
                         <?php if(Route::has('login')): ?>
                             <?php if(auth()->guard()->check()): ?>
-                                <a href="<?php echo e(route('topic.index')); ?>">Start</a>
+                                <a href="<?php echo e(route('topic.index')); ?>">Let's communicate</a>
                             <?php else: ?>
                                 <a href="<?php echo e(route('login')); ?>">Login</a>
 

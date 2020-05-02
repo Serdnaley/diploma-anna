@@ -15893,7 +15893,7 @@ a.text-dark:focus {
 
 .welcome-screen {
   font-family: "Nunito", sans-serif;
-  background: #ed1e79;
+  background: #fff;
   min-height: 100vh;
 }
 
@@ -15920,8 +15920,8 @@ a.text-dark:focus {
 .welcome-screen .logo {
   opacity: 0;
   margin-left: -300px;
-  -webkit-animation: welcome--logo 2s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
-          animation: welcome--logo 2s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+  -webkit-animation: welcome--logo 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
+          animation: welcome--logo 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
 }
 
 .welcome-screen .title {
@@ -15941,18 +15941,23 @@ a.text-dark:focus {
 .welcome-screen .links {
   opacity: 0;
   margin-top: -50px;
-  -webkit-animation: welcome--links 1s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
-          animation: welcome--links 1s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+  -webkit-animation: welcome--links 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
+          animation: welcome--links 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
 }
 
 .welcome-screen .links > a {
   color: #222;
   padding: 0 25px;
-  font-size: 13px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-decoration: none;
   text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.welcome-screen .links > a:hover {
+  color: #fbb03b;
 }
 
 .welcome-screen .m-b-md {
@@ -15961,14 +15966,14 @@ a.text-dark:focus {
 
 .welcome-screen .footer-text {
   text-align: center;
-  color: #fbb03b;
+  color: #222;
   opacity: 0;
-  -webkit-animation: welcome--footer 3s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
-          animation: welcome--footer 3s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+  -webkit-animation: welcome--footer 3s 10s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+          animation: welcome--footer 3s 10s cubic-bezier(0.37, 1.29, 1, 1) forwards;
 }
 
 .welcome-screen .footer-text a {
-  color: #fbb03b;
+  color: #222;
 }
 
 @-webkit-keyframes welcome--logo {
@@ -15997,15 +16002,15 @@ a.text-dark:focus {
 
 @-webkit-keyframes welcome--svg-text {
   0% {
-    transform: scale(3);
+    transform: scale(2.5);
   }
 
   60% {
-    transform: scale(2);
+    transform: scale(2.5);
   }
 
   70% {
-    transform: scale(1.5);
+    transform: scale(2.3);
   }
 
   100% {
@@ -16015,15 +16020,15 @@ a.text-dark:focus {
 
 @keyframes welcome--svg-text {
   0% {
-    transform: scale(3);
+    transform: scale(2.5);
   }
 
   60% {
-    transform: scale(2);
+    transform: scale(2.5);
   }
 
   70% {
-    transform: scale(1.5);
+    transform: scale(2.3);
   }
 
   100% {

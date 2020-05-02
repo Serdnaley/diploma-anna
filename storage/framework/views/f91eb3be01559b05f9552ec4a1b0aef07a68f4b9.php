@@ -66,20 +66,22 @@
         transform="translate(-284.01 -130)"
     />
     <path
-        class="logo-cat-pupil-1"
-        d="M449.92,386.75s8-8.08,8-18.05-8-18-8-18-8,8.08-8,18S449.92,386.75,449.92,386.75Z"
-        transform="translate(-284.01 -130)"
-    />
-    <path
         class="logo-cat-eye-2"
         d="M598.79,368.7s-22.2-21.88-49.59-21.88-49.58,21.88-49.58,21.88,22.2,21.89,49.58,21.89S598.79,368.7,598.79,368.7Z"
         transform="translate(-284.01 -130)"
     />
-    <path
-        class="logo-cat-pupil-2"
-        d="M549.2,386.75s8-8.08,8-18.05-8-18-8-18-8,8.08-8,18S549.2,386.75,549.2,386.75Z"
-        transform="translate(-284.01 -130)"
-    />
+    <g class="logo-cat-pupil">
+        <path
+            class="logo-cat-pupil-1"
+            d="M449.92,386.75s8-8.08,8-18.05-8-18-8-18-8,8.08-8,18S449.92,386.75,449.92,386.75Z"
+            transform="translate(-284.01 -130)"
+        />
+        <path
+            class="logo-cat-pupil-2"
+            d="M549.2,386.75s8-8.08,8-18.05-8-18-8-18-8,8.08-8,18S549.2,386.75,549.2,386.75Z"
+            transform="translate(-284.01 -130)"
+        />
+    </g>
 
     <path
         class="logo-cat-nouse"

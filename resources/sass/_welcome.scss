@@ -2,7 +2,7 @@
 
 .welcome-screen {
     font-family: 'Nunito', sans-serif;
-    background: $logo-primary;
+    background: #fff;
     min-height: 100vh;
 
     .full-height {
@@ -29,7 +29,7 @@
     .logo {
         opacity: 0;
         margin-left: -300px;
-        animation: welcome--logo 2s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+        animation: welcome--logo 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
     }
 
     .title {
@@ -47,17 +47,22 @@
     .links {
         opacity: 0;
         margin-top: -50px;
-        animation: welcome--links 1s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+        animation: welcome--links 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
     }
 
     .links > a {
         color: $text-color;
         padding: 0 25px;
-        font-size: 13px;
+        font-size: 22px;
         font-weight: 600;
         letter-spacing: .1rem;
         text-decoration: none;
         text-transform: uppercase;
+        transition: .3s;
+
+        &:hover {
+            color: $logo-secondary;
+        }
     }
 
     .m-b-md {
@@ -66,14 +71,26 @@
 
     .footer-text {
         text-align: center;
-        color: $logo-secondary;
+        color: $text-color;
         opacity: 0;
-        animation: welcome--footer 3s 7s cubic-bezier(0.37, 1.29, 1, 1) forwards;
+        animation: welcome--footer 3s 10s cubic-bezier(0.37, 1.29, 1, 1) forwards;
 
         a {
-            color: $logo-secondary;
+            color: $text-color;
         }
     }
+
+    //&:active,
+    //&:focus {
+    //    .logo,
+    //    .title,
+    //    .title text,
+    //    .links,
+    //    .footer-text {
+    //        animation-duration: 0s;
+    //        animation-delay: 0s;
+    //    }
+    //}
 }
 
 @keyframes welcome--logo {
@@ -89,13 +106,13 @@
 
 @keyframes welcome--svg-text {
     0% {
-        transform: scale(3);
+        transform: scale(2.5);
     }
     60% {
-        transform: scale(2);
+        transform: scale(2.5);
     }
     70% {
-        transform: scale(1.5);
+        transform: scale(2.3);
     }
     100% {
         transform: scale(1);
