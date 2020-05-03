@@ -11,11 +11,11 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>Category: {{ $category->name }}</h1>
-            </div>
-            <div class="col-auto">
+        <div class="layout-title">
+
+            <h1>Category: {{ $category->name }}</h1>
+
+            <div class="layout-title__actions">
                 @can('delete', $category)
                     <confirm-action
                         @confirm="$refs['form-category-delete'].submit()"
@@ -25,6 +25,7 @@
                             Delete category
                         </div>
                     </confirm-action>
+                    <span class="color-secondary">&bull;</span>
                 @endcan
                 @can('update', $category)
                     <a href="{{ route('category.edit', ['category' => $category]) }}" class="btn btn-primary">
@@ -32,13 +33,18 @@
                     </a>
                 @endcan
             </div>
+
+        </div>
+
+        <div class="list">
+            @foreach($topics as $topic)
+                @include('topic.list-item', ['topic' => $topic])
+            @endforeach
         </div>
 
         <hr>
 
-        @foreach($topics as $topic)
-            @include('topic.list-item', ['topic' => $topic])
-        @endforeach
+        {{ $topics->links() }}
 
         <form
             action="{{ route('category.destroy', ['category' => $category]) }}"

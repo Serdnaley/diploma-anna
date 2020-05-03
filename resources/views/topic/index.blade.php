@@ -9,9 +9,11 @@
             <h1>All topics</h1>
 
             <div class="layout-title__actions">
-                <a href="{{ route('topic.create') }}" class="btn btn-link">
-                    Create topic
-                </a>
+                @if(Gate::allows('create', 'App\Topic'))
+                    <a href="{{ route('topic.create') }}">
+                        Create topic
+                    </a>
+                @endif
             </div>
 
         </div>

@@ -14,7 +14,7 @@
 @import 'logo-text';
 @import 'welcome';
 @import 'layout';
-@import 'topic';
+@import 'card';
 @import 'pagination';
 
 html, body {
@@ -150,4 +150,8 @@ a {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.confirm-action {
+    display: inline-block;
 }

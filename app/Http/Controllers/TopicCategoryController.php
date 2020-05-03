@@ -68,7 +68,7 @@ class TopicCategoryController extends Controller
     public function show(TopicCategory $category)
     {
 
-        $topics = Topic::whereCategoryId($category->id)->get();
+        $topics = Topic::whereCategoryId($category->id)->paginate();
 
         return view('category.show', [
             'category' => $category,

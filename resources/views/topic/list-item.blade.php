@@ -1,14 +1,14 @@
-<div class="topic-list-item">
-    <div class="topic-list-item__bg"></div>
-    <div class="topic-list-item__content">
-        <a href="{{ route('topic.show', ['topic' => $topic]) }}"  class="topic-list-item__title">
+<div class="card">
+    <div class="card__bg"></div>
+    <div class="card__content">
+        <a href="{{ route('topic.show', ['topic' => $topic]) }}"  class="card__title">
             {{ $topic->title }}
         </a>
         <span class="text-muted">by</span>
         <a href="{{ route('user.show', ['user' => $topic->author]) }}">
             {{ $topic->author->name }}
         </a>
-        <p class="topic-list-item__actions">
+        <p class="card__actions">
             @if(Gate::allows('update', $topic))
                 <a href="{{ route('topic.edit', ['topic' => $topic]) }}" class="btn btn-link">
                     Edit topic
@@ -20,7 +20,7 @@
             </a>
         </p>
     </div>
-    <div class="topic-list-item__info">
+    <div class="card__info">
         <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
             {{ $topic->created_at->format('j F, Y') }}
         </span>
