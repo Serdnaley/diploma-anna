@@ -12,7 +12,7 @@
             <div class="content">
 
                 <div class="logo">
-                    @include('components.cat')
+                    @include('components.logo-cat')
                 </div>
 
                 <div class="divider"></div>

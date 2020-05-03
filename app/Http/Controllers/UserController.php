@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Topic;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -57,8 +58,11 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $topics = Topic::whereAuthorId($user->id)->get();
+
         return view('user.show', [
             'user' => $user,
+            'topics' => $topics,
         ]);
     }
 

@@ -54,6 +54,18 @@
             </div>
         </div>
 
+        <hr>
+
+        @if ($topics->isEmpty())
+            <p>
+                No topics yet :(
+            </p>
+        @endif
+
+        @foreach($topics as $topic)
+            @include('topic.list-item', ['topic' => $topic])
+        @endforeach
+
         <form
             action="{{ route('user.destroy', ['user' => $user]) }}"
             method="POST"

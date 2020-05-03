@@ -54,6 +54,18 @@
             </div>
         </div>
 
+        <hr>
+
+        <?php if($topics->isEmpty()): ?>
+            <p>
+                No topics yet :(
+            </p>
+        <?php endif; ?>
+
+        <?php $__currentLoopData = $topics; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $topic): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php echo $__env->make('topic.list-item', ['topic' => $topic], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
         <form
             action="<?php echo e(route('user.destroy', ['user' => $user])); ?>"
             method="POST"
