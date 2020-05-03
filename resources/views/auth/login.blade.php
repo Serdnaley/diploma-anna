@@ -5,7 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+
+                <div class="layout-title">
+
+                    <h1>{{ __('Login') }}</h1>
+
+                    <a href="{{ route('register') }}">Register</a>
+
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -64,6 +71,7 @@
                                 @endif
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

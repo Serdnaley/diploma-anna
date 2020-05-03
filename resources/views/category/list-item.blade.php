@@ -6,12 +6,12 @@
         </a>
         <p class="card__actions">
             @if(Gate::allows('update', $category))
-                <a href="{{ route('category.edit', ['category' => $category]) }}" class="btn btn-link">
+                <a href="{{ route('category.edit', ['category' => $category]) }}">
                     Edit category
                 </a>
                 <span class="color-secondary">&bull;</span>
             @endif
-            <a href="{{ route('category.show', ['category' => $category]) }}" class="btn btn-primary">
+            <a href="{{ route('category.show', ['category' => $category]) }}">
                 View category
             </a>
         </p>

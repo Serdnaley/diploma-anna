@@ -10,12 +10,12 @@
         </a>
         <p class="card__actions">
             @if(Gate::allows('update', $topic))
-                <a href="{{ route('topic.edit', ['topic' => $topic]) }}" class="btn btn-link">
+                <a href="{{ route('topic.edit', ['topic' => $topic]) }}">
                     Edit topic
                 </a>
                 <span class="color-secondary">&bull;</span>
             @endif
-            <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-primary">
+            <a href="{{ route('topic.show', ['topic' => $topic]) }}">
                 View topic
             </a>
         </p>

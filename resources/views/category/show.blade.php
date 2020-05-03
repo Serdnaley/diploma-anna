@@ -36,6 +36,8 @@
 
         </div>
 
+        <hr>
+
         <div class="list">
             @foreach($topics as $topic)
                 @include('topic.list-item', ['topic' => $topic])

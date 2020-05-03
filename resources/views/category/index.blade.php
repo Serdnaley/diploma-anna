@@ -17,6 +17,8 @@
             </div>
         </div>
 
+        <hr>
+
         <div class="list">
             @foreach($categories as $category)
                 @include('category.list-item', ['category' => $category])
