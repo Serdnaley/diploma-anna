@@ -14,20 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
-
-Route::get('/home', function () {
-    return redirect()->route('topic.index');
-})->name('home');
 
 Auth::routes();
 
-Route::resources([
-    'user' => 'UserController',
-    'chat' => 'ChatController',
-    'topic' => 'TopicController',
-    'comment' => 'CommentController',
-    'message' => 'MessageController',
-    'category' => 'TopicCategoryController',
-]);
+Route::middleware('auth')->group(function () {
+
+    Route::get('/home', function () {
+        return redirect()->route('topic.index');
+    })->name('home');
+
+    Route::get('/welcome', function () {
+        return view('welcome');
+    })->name('welcome');
+
+    Route::resources([
+        'user' => 'UserController',
+        'chat' => 'ChatController',
+        'topic' => 'TopicController',
+        'comment' => 'CommentController',
+        'message' => 'MessageController',
+        'category' => 'TopicCategoryController',
+    ]);
+
+});

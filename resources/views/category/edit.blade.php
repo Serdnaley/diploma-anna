@@ -19,13 +19,11 @@
                 @can('delete', $category)
                     <confirm-action
                         @confirm="$refs['form-category-delete'].submit()"
-                        confirm-button-text="Delete"
-                        confirm-button-class="btn btn-danger"
+                        title="Are you sure want to delete '{{ $category->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
                             Delete category
                         </div>
-                        Are you sure want to delete "{{ $category->title }}"?
                     </confirm-action>
                 @endcan
                 <a href="{{ route('category.show', ['category' => $category]) }}" class="btn btn-primary">

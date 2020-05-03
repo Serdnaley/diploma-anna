@@ -1,0 +1,31 @@
+@import 'variables';
+
+.logo-text {
+    height: 100%;
+    width: 100%;
+
+    &__letter {
+        fill: $logo-color-1;
+
+        @for $i from 1 through 8 {
+            &--#{$i} {
+                animation: main-logo-anim-1 #{random(5) + 5}s #{random(10) / 2}s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes main-logo-anim-1 {
+    0%,
+    30%, 40%,
+    70%, 80%,
+    100% {
+        fill: $logo-color-1;
+    }
+    32%, 38% {
+        fill: $logo-color-2;
+    }
+    72%, 78% {
+        fill: $logo-color-3;
+    }
+}

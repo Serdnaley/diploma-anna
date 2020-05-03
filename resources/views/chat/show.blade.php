@@ -19,13 +19,11 @@
                 @can('delete', $chat)
                     <confirm-action
                         @confirm="$refs['form-chat-delete'].submit()"
-                        confirm-button-text="Delete"
-                        confirm-button-class="btn btn-danger"
+                        title="Are you sure want to delete '{{ $chat->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
                             Delete chat
                         </div>
-                        Are you sure want to delete "{{ $chat->title }}"?
                     </confirm-action>
                 @endcan
                 @can('update', $chat)
@@ -113,7 +111,7 @@
 
         <form
             method="POST"
-            class="d-none"
+            style="display:none"
             ref="form-message-delete"
         >
             @csrf
@@ -123,7 +121,7 @@
         <form
             action="{{ route('chat.destroy', ['chat' => $chat]) }}"
             method="POST"
-            class="d-none"
+            style="display:none"
             ref="form-chat-delete"
         >
             @csrf

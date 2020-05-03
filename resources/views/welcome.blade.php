@@ -13,6 +13,7 @@
 
                 <div class="logo">
                     @include('components.logo-cat')
+                    @include('components.logo-text')
                 </div>
 
                 <div class="divider"></div>

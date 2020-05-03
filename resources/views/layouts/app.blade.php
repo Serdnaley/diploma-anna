@@ -1,105 +1,60 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.base')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('nav')
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
+    <div class="layout-header">
 
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+        <div class="layout-header__logo">
+            @include('components.logo-cat')
+            @include('components.logo-text')
+        </div>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <ul class="layout-header__nav">
+            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'topic.index' ? 'active' : '' }}">
+                <a href="{{ route('topic.index') }}" class="nav-link">Topics</a>
+            </li>
+            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
+                <a href="{{ route('category.index') }}" class="nav-link">Categories</a>
+            </li>
+            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'user.index' ? 'active' : '' }}">
+                <a href="{{ route('user.index') }}" class="nav-link">Users</a>
+            </li>
+            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
+                <a href="{{ route('chat.index') }}" class="nav-link">Chats</a>
+            </li>
+        </ul>
 
-    <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <div class="layout-header__profile">
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body>
-<div id="app">
-
-    @section('nav')
-
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand main-logo" href="{{ url('/') }}">
-                    <span>C</span>
-                    <span>a</span>
-                    <span>t</span>
-                    <span>'o'</span>
-                    <span>b</span>
-                    <span>o</span>
-                    <span>o</span>
-                    <span>k</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item {{ \Route::currentRouteName() === 'topic.index' ? 'active' : '' }}">
-                            <a href="{{ route('topic.index') }}" class="nav-link">Topics</a>
-                        </li>
-                        <li class="nav-item {{ \Route::currentRouteName() === 'user.index' ? 'active' : '' }}">
-                            <a href="{{ route('user.index') }}" class="nav-link">Users</a>
-                        </li>
-                        <li class="nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
-                            <a href="{{ route('category.index') }}" class="nav-link">Categories</a>
-                        </li>
-                        <li class="nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
-                            <a href="{{ route('chat.index') }}" class="nav-link">Chats</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+            @auth
+                <div class="user-avatar user-avatar--{{ \Auth::user()->color }}">
+                    <div class="user-avatar__initials">
+                        {{ \Auth::user()->initials }}
+                    </div>
                 </div>
-            </div>
-        </nav>
 
-    @show
+                <div class="user-avatar__name">
+                    <div class="color-{{ \Auth::user()->color }}">
+                        {{ \Auth::user()->name }}
+                    </div>
+                    <confirm-action
+                        @confirm="$refs['form-logout'].submit()"
+                        title="Are you sure want to logout?"
+                    >
+                        <div class="btn-link">
+                            Logout
+                        </div>
+                    </confirm-action>
+                </div>
+            @endauth
+
+        </div>
+
+    </div>
+
+@endsection
+
+@section('main')
 
     <main>
 
@@ -127,6 +82,15 @@
 
         @yield('content')
     </main>
-</div>
-</body>
-</html>
+
+    <form
+        action="{{ route('logout') }}"
+        method="POST"
+        class="d-none"
+        ref="form-logout"
+    >
+        @csrf
+        @method('POST')
+    </form>
+
+@endsection

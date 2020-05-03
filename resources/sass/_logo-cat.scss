@@ -1,7 +1,9 @@
+@import 'variables';
 
 .logo-cat {
     height: 100%;
     width: 100%;
+    border-radius: 10%;
 
     &-ear-1,
     &-ear-2 {

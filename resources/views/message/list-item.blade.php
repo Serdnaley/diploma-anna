@@ -24,18 +24,16 @@
                             <confirm-action
                                 @confirm="function () {
                                     $refs['form-chat-delete'].setAttribute(
-                                    'action',
-                                    '{{ route('message.destroy', ['message' => $message]) }}'
+                                        'action',
+                                        '{{ route('message.destroy', ['message' => $message]) }}'
                                     );
                                     $refs['form-chat-delete'].submit();
-                                    }"
-                                confirm-button-text="Delete"
-                                confirm-button-class="btn btn-danger"
+                                }"
+                                title="Are you sure want to delete message of {{ $message->author->name }}?"
                             >
                                 <a href="#" class="text-danger" slot="reference">
                                     Delete
                                 </a>
-                                Are you sure want to delete message of {{ $message->author->name }}?
                             </confirm-action>
                         @endcan
                     </div>

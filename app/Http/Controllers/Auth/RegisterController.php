@@ -64,10 +64,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $colors = [
+            'blue',
+            'indigo',
+            'purple',
+            'pink',
+            'red',
+            'orange',
+            'yellow',
+            'green',
+            'teal',
+            'cyan',
+        ];
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 'user',
+            'color' => $colors[array_rand($colors)],
         ]);
     }
 }

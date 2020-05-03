@@ -5,7 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
 require('./mouse-parallax');
 
 window.Vue = require('vue');

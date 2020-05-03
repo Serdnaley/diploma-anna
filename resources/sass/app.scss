@@ -10,16 +10,41 @@
 // Fontawesome
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
-@import 'logo';
 @import 'logo-cat';
+@import 'logo-text';
 @import 'welcome';
+@import 'layout';
 
 html, body {
+    font-family: Nunito, Roboto, sans-serif;
     background-color: #fff;
     color: $text-color;
     font-weight: 200;
     height: 100vh;
     margin: 0;
+}
+
+.btn-link,
+a {
+    text-decoration: none;
+    color: $text-color;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: $logo-primary;
+    }
+
+    &:active {
+        color: $logo-secondary;
+        transition: 0s;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
 }
 
 @each $index,$color in (

@@ -19,13 +19,11 @@
                 @can('delete', $user)
                     <confirm-action
                         @confirm="$refs['form-user-delete'].submit()"
-                        confirm-button-text="Delete"
-                        confirm-button-class="btn btn-danger"
+                        title="Are you sure want to delete '{{ $user->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
                             Delete user
                         </div>
-                        Are you sure want to delete "{{ $user->title }}"?
                     </confirm-action>
                 @endcan
                 <a href="{{ route('user.show', ['user' => $user]) }}" class="btn btn-primary">
