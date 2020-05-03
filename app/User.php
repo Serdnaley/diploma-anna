@@ -34,6 +34,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read string $initials
+ * @property string $color
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereColor($value)
  */
 class User extends Authenticatable
 {

@@ -101,3 +101,8 @@ html, body {
         line-height: 1;
     }
 }
+
+.select-users-list {
+    max-height: 300px;
+    overflow-y: auto;
+}

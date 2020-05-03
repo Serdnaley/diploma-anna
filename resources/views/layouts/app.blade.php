@@ -56,6 +56,9 @@
                         <li class="nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
                             <a href="{{ route('category.index') }}" class="nav-link">Categories</a>
                         </li>
+                        <li class="nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
+                            <a href="{{ route('chat.index') }}" class="nav-link">Chats</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

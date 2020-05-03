@@ -25,7 +25,9 @@ Auth::routes();
 
 Route::resources([
     'user' => 'UserController',
+    'chat' => 'ChatController',
     'topic' => 'TopicController',
     'comment' => 'CommentController',
+    'message' => 'MessageController',
     'category' => 'TopicCategoryController',
 ]);
