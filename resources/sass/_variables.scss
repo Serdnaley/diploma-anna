@@ -31,7 +31,10 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-$primary: $blue;
+$logo-primary: #ed1e79;
+$logo-secondary: #fbb03b;
+
+$primary: $logo-primary;
 $secondary: $gray-600;
 $success: $green;
 $info: $cyan;
@@ -42,12 +45,13 @@ $dark: $gray-800;
 
 $text-color: #222;
 
-$logo-primary: #ed1e79;
-$logo-secondary: #fbb03b;
-
 $logo-color-1: $black;
 $logo-color-2: $logo-primary;
 $logo-color-3: $logo-secondary;
+
+$border-radius: 15px;
+$border-radius-lg: 20px;
+$border-radius-sm: 10rem;
 
 //$logo-color-1: #DB2B39;
 //$logo-color-2: #29335C;

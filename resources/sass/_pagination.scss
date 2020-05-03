@@ -1,0 +1,43 @@
+@import 'variables';
+
+.pagination {
+    margin: 0;
+    padding: 15px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .page-item {
+        list-style: none;
+
+        a, span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 30px;
+            width: 30px;
+
+            padding: 5px;
+            margin: 5px 10px;
+
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        span {
+            opacity: .3;
+        }
+
+        a {
+            color: $text-color;
+            transition: .3s;
+
+            &:hover {
+                color: $primary;
+                background: $light;
+            }
+        }
+    }
+}

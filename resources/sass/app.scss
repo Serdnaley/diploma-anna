@@ -5,7 +5,7 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
 @import "~@fortawesome/fontawesome-free/css/all.css";
@@ -14,14 +14,19 @@
 @import 'logo-text';
 @import 'welcome';
 @import 'layout';
+@import 'topic';
+@import 'pagination';
 
 html, body {
     font-family: Nunito, Roboto, sans-serif;
-    background-color: #fff;
     color: $text-color;
     font-weight: 200;
     height: 100vh;
     margin: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .btn-link,
@@ -51,6 +56,15 @@ a {
     'indigo': $indigo,
     'purple': $purple,
     'red': $red,
+
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark,
 ) {
     .bg-#{$index} {
         background: $color;
@@ -130,4 +144,10 @@ a {
 .select-users-list {
     max-height: 300px;
     overflow-y: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
