@@ -3,10 +3,47 @@
 .layout {
     margin-bottom: 100px;
 
+    $this: &;
+
+    &-thumbnail {
+        position: relative;
+        margin-bottom: 30px;
+
+        img {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            background: $gray-500;
+            z-index: -1;
+        }
+
+        #{$this} {
+            &-back-btn {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 15px;
+            }
+
+            &-title {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 0 15px;
+
+                h1 {
+                    background: $light;
+                    padding: 3px 15px;
+                }
+            }
+        }
+    }
+
     &-header {
         display: flex;
         justify-content: space-between;
-        padding: 30px 100px;
+        padding: 30px 0;
 
         &__logo {
             height: 150px;
@@ -32,6 +69,10 @@
             &-item {
                 list-style: none;
 
+                &.active a {
+                    color: $primary;
+                }
+
                 a {
                     text-decoration: none;
                     font-size: 20px;
@@ -41,11 +82,21 @@
         }
 
         &__profile {
-            width: 310px;
             margin-left: 50px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
+
+            .user-avatar {
+                height: 100px;
+                width: 100px;
+                font-size: 30px;
+
+                &__name {
+                    margin-left: 0;
+                    margin-right: 30px;
+                }
+            }
 
             .btn-link {
                 text-decoration: none;
@@ -54,6 +105,11 @@
             }
         }
 
+    }
+
+    &-sidebar {
+        width: 500px;
+        margin-left: 30px;
     }
 
     &-form {

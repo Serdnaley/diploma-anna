@@ -2,7 +2,7 @@
 
 @section('nav')
 
-    <div class="layout-header">
+    <div class="container layout-header">
 
         <div class="layout-header__logo">
             @include('components.logo-cat')
@@ -27,11 +27,6 @@
         <div class="layout-header__profile">
 
             @auth
-                <div class="user-avatar user-avatar--{{ \Auth::user()->color }}">
-                    <div class="user-avatar__initials">
-                        {{ \Auth::user()->initials }}
-                    </div>
-                </div>
 
                 <div class="user-avatar__name">
                     <div class="color-{{ \Auth::user()->color }}">
@@ -46,6 +41,12 @@
                         </div>
                     </confirm-action>
                 </div>
+
+                <div class="user-avatar user-avatar--{{ \Auth::user()->color }}">
+                    <div class="user-avatar__initials">
+                        {{ \Auth::user()->initials }}
+                    </div>
+                </div>
             @endauth
 
         </div>
@@ -57,29 +58,6 @@
 @section('main')
 
     <main>
-
-        @if (session()->has('success'))
-            <div class="container">
-                @if(is_array(session()->get('success')))
-                    @foreach (session()->get('success') as $message)
-                        <div class="alert alert-success">
-                            {{ $message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-            </div>
-        @endif
-
         @yield('content')
     </main>
 

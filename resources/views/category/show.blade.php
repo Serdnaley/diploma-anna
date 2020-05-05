@@ -25,10 +25,12 @@
                             Delete category
                         </div>
                     </confirm-action>
-                    <span class="color-secondary">&bull;</span>
                 @endcan
                 @can('update', $category)
-                    <a href="{{ route('category.edit', ['category' => $category]) }}" class="btn btn-primary">
+                    <a
+                        href="{{ route('category.edit', ['category' => $category]) }}"
+                        class="btn btn-primary ml-3"
+                    >
                         Edit category
                     </a>
                 @endcan

@@ -23,6 +23,23 @@
 </head>
 <body>
     <div id="app" class="layout">
+
+        @if (session()->has('success'))
+            <div class="container">
+                @if(is_array(session()->get('success')))
+                    @foreach (session()->get('success') as $message)
+                        <div class="alert alert-success alert-dismiss">
+                            {{ $message }}
+                        </div>
+                    @endforeach
+                @else
+                    <div class="alert alert-success alert-dismiss">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+            </div>
+        @endif
+
         @yield('nav')
         @yield('main')
     </div>

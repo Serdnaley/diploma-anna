@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use File;
 
 /**
  * App\Topic
@@ -35,11 +36,24 @@ class Topic extends Model
         'category_id',
     ];
 
+    protected $append = [
+        'thumbnail',
+    ];
+
     public function author() {
         return $this->belongsTo(User::class);
     }
 
     public function category() {
         return $this->belongsTo(TopicCategory::class);
+    }
+
+    public function getThumbnailAttribute() {
+        $json = File::get(database_path('factories/photos/unsplash-array.json'));
+        $array = json_decode($json);
+        $index = $this->id - round($this->id / count($array))*count($array);
+        $key = $array[$index];
+
+        return '//source.unsplash.com/' . $key;
     }
 }

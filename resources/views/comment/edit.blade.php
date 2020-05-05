@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.form')
 
 @section('content')
 
-    <div class="container">
+    <div class="container layout-sidebar">
 
         <div class="my-4">
             <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn-link">
@@ -25,26 +25,22 @@
 
             <input type="hidden" name="topic_id" value="{{ $topic->id }}">
 
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <textarea
-                            name="text"
-                            class="form-control"
-                            placeholder="Write your comment here..."
-                            cols="10"
-                            rows="5"
-                            required
-                        >{{ $comment->text }}</textarea>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-check"></i>
-                        Save
-                    </button>
-                </div>
-            </div>
+            <textarea
+                name="text"
+                class="w-100"
+                placeholder="Write your comment here..."
+                cols="10"
+                rows="5"
+                required
+            >{{ $comment->text }}</textarea>
+
+            <button
+                type="submit"
+                class="btn btn-primary mt-3"
+            >
+                <i class="fas fa-check"></i>
+                Save
+            </button>
 
             @if ($errors->any())
                 <div class="alert alert-danger">

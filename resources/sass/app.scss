@@ -17,6 +17,9 @@
 @import 'card';
 @import 'pagination';
 @import 'forms';
+@import 'utils';
+@import 'comment';
+@import 'alert';
 
 html, body {
     font-family: Nunito, Roboto, sans-serif;
@@ -38,7 +41,6 @@ a {
     cursor: pointer;
 
     &:hover {
-        text-decoration: underline;
         color: $logo-primary;
     }
 
@@ -49,7 +51,7 @@ a {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -155,4 +157,9 @@ a {
 
 .confirm-action {
     display: inline-block;
+}
+
+.dot-divider {
+    margin: 0 1em;
+    color: $light;
 }

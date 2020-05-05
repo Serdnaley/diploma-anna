@@ -85,8 +85,17 @@ class TopicController extends Controller
         $topic->load(['author', 'category']);
         $comments = Comment::with(['author'])->where('topic_id', $topic->id)->get();
 
+        $users = collect();
+
+        foreach ($comments as $comment) {
+            $users[] = $comment->author;
+        };
+
+        $users = $users->unique();
+
         return view('topic.show', [
             'topic' => $topic,
+            'users' => $users,
             'comments' => $comments,
         ]);
     }

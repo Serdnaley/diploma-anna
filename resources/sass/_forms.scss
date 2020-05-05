@@ -1,13 +1,32 @@
 @import 'variables';
 
+hr {
+    border: none;
+    height: 2px;
+    background: $gray-200;
+}
+
 input,
 select,
 textarea {
-    font-size: 18px;
-    padding: 10px 20px;
-    border: 3px solid $gray-300;
-    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 0;
     outline: none !important;
+    border: none;
+
+    border-bottom: 3px solid $light;
+    transition: border-color .3s;
+
+    min-height: calc(1em + 20px);
+    resize: vertical;
+
+    &:hover {
+        border-color: $gray-500;
+    }
+
+    &:focus {
+        border-color: $primary;
+    }
 }
 
 .form-group {
@@ -23,24 +42,36 @@ textarea {
     cursor: pointer;
     user-select: none;
     outline: none !important;
+    border: none;
 
     text-decoration: none !important;
 
-    font-size: 18px;
-    padding: 5px 10px;
+    font-size: 16px;
+    padding: 7px 15px;
     background: $light;
-    border: 2px solid $gray-200;
-    border-radius: 5px;
 
     transition: .3s;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
         color: $primary;
-        border-color: $primary;
     }
 
     &:active {
-        transform: scale(.8);
-        transition: .1s;
+        transform: scale(.9);
+        transition: .05s;
+    }
+
+    &-primary {
+        background: $primary;
+        color: $white;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken($primary, 10);
+            color: $white;
+        }
     }
 }

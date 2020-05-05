@@ -1,0 +1,64 @@
+@import 'variables';
+
+.alert {
+    display: block;
+    padding: 15px;
+    margin: 15px 0;
+    background: $light;
+
+    &-dismiss {
+        overflow: hidden;
+        max-height: 100px;
+        animation: alert-dismiss 1s 3s forwards;
+    }
+
+    &-primary {
+        background: lighten($primary, 30);
+        color: darken($primary, 30);
+    }
+
+    &-secondary {
+        background: lighten($secondary, 30);
+        color: darken($secondary, 30);
+    }
+
+    &-success {
+        background: lighten($success, 30);
+        color: darken($success, 30);
+    }
+
+    &-info {
+        background: lighten($info, 30);
+        color: darken($info, 30);
+    }
+
+    &-warning {
+        background: lighten($warning, 30);
+        color: darken($warning, 30);
+    }
+
+    &-danger {
+        background: lighten($danger, 30);
+        color: darken($danger, 30);
+    }
+
+    &-light {
+        background: lighten($light, 30);
+        color: darken($light, 30);
+    }
+
+    &-dark {
+        background: lighten($dark, 30);
+        color: darken($dark, 30);
+    }
+
+}
+
+@keyframes alert-dismiss {
+    100% {
+        margin: 0;
+        padding: 0 15px;
+        max-height: 0;
+        opacity: 0;
+    }
+}
