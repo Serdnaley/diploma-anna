@@ -56,8 +56,8 @@
 
 @keyframes alert-dismiss {
     100% {
-        margin: 0;
-        padding: 0 15px;
+        margin: -30px 0 0 0;
+        transform: translateY(45px);
         max-height: 0;
         opacity: 0;
     }

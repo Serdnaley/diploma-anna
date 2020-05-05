@@ -19,7 +19,7 @@
             <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'user.index' ? 'active' : '' }}">
                 <a href="{{ route('user.index') }}" class="nav-link">Users</a>
             </li>
-            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
+            <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'chat.index' ? 'active' : '' }}">
                 <a href="{{ route('chat.index') }}" class="nav-link">Chats</a>
             </li>
         </ul>

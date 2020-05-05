@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.form')
 
 @section('content')
 
-    <div class="container">
+    <div class="container layout-sidebar">
 
         <div class="my-4">
             <a href="{{ route('category.index') }}" class="btn-link">
@@ -11,45 +11,48 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>Create topic category</h1>
-            </div>
+        <div class="layout-title">
+            <h1>Create topic category</h1>
         </div>
 
         <hr>
 
-        <div class="card mb-3">
-            <div class="card-body">
-                <form action="{{ route('category.store') }}" method="post">
-                    @csrf
-                    @method('POST')
+        <form
+            action="{{ route('category.store') }}"
+            method="post"
+        >
+            @csrf
+            @method('POST')
 
-                    <div class="form-group">
-                        <label for="category-create-name">Name</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="category-create-name"
-                            name="name"
-                            required
-                        >
-                    </div>
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0 pl-3">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div class="form-group">
+                <label for="category-create-name">Name</label>
+                <input
+                    type="text"
+                    class="d-block w-100"
+                    id="category-create-name"
+                    placeholder="Category name"
+                    name="name"
+                    required
+                >
             </div>
-        </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0 pl-3">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Create category
+            </button>
+        </form>
 
     </div>
 

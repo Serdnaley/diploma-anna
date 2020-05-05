@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.form')
 
 @section('content')
 
@@ -11,11 +11,10 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>Edit topic</h1>
-            </div>
-            <div class="col-auto">
+        <div class="layout-title">
+            <h1>Edit topic</h1>
+
+            <div class="layout-title__actions">
                 @can('delete', $topic)
                     <confirm-action
                         @confirm="$refs['form-topic-delete'].submit()"
@@ -44,7 +43,7 @@
                         <label for="topic-create-title">Title</label>
                         <input
                             type="text"
-                            class="form-control"
+                            class="d-block w-100"
                             id="topic-create-title"
                             name="title"
                             value="{{ $topic->title }}"
@@ -55,7 +54,7 @@
                     <div class="form-group">
                         <label for="topic-create-category">Category</label>
                         <select
-                            class="form-control"
+                            class="d-block w-100"
                             id="topic-create-category"
                             name="category_id"
                             required
@@ -79,7 +78,13 @@
                         </div>
                     @endif
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Save
+                        <i class="fas fa-check"></i>
+                    </button>
                 </form>
             </div>
         </div>

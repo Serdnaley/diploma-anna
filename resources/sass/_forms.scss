@@ -9,10 +9,14 @@ hr {
 input,
 select,
 textarea {
+    display: inline-block;
+    height: 40px;
     font-size: 16px;
     padding: 10px 0;
     outline: none !important;
     border: none;
+    border-radius: 0 !important;
+    background: transparent;
 
     border-bottom: 3px solid $light;
     transition: border-color .3s;
@@ -30,7 +34,12 @@ textarea {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin: 30px 0;
+
+    label {
+        font-size: 14px;
+        color: $secondary;
+    }
 }
 
 .btn {
