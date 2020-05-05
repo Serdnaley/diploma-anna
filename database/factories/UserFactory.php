@@ -31,9 +31,9 @@ $factory->define(User::class, function (Faker $faker) {
         'teal',
         'cyan',
     ];
-    
+
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName . ' ' . $faker->lastName,
         'role' => 'user',
         'color' => $faker->randomElement($colors),
         'email' => $faker->unique()->safeEmail,

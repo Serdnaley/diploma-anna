@@ -9,6 +9,6 @@ $factory->define(Comment::class, function (Faker $faker) {
     return [
         'topic_id' => 1,
         'author_id' => 0,
-        'text' => $faker->text(200),
+        'text' => $faker->realText(200),
     ];
 });
