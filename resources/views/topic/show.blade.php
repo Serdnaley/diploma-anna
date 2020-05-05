@@ -40,9 +40,9 @@
         </div>
 
         <div class="d-flex">
-            <div>
+            <div class="w-100">
                 @if($comments->isEmpty())
-                    <p class="text-muted">Your comment will be first :)</p>
+                    <p class="text-muted" style="margin-left: 55px;">Your comment will be first :)</p>
                 @endif
 
                 @foreach($comments as $comment)

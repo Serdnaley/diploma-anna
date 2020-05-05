@@ -12,12 +12,14 @@
 
     <div class="comment__body">
         <div class="comment__title">
-            <a
-                class="comment__author color-{{ $comment->author->color }}"
-                href="{{ route('user.show', ['user' => $comment->author]) }}"
-            >
-                {{ $comment->author->name }}
-            </a>
+            <div>
+                <a
+                    class="comment__author color-{{ $comment->author->color }}"
+                    href="{{ route('user.show', ['user' => $comment->author]) }}"
+                >
+                    {{ $comment->author->name }}
+                </a>
+            </div>
             <div class="comment__actions">
                 @can('update', $comment)
                     <a href="{{ route('comment.edit', ['comment' => $comment]) }}">
