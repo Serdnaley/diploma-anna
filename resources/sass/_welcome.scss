@@ -1,9 +1,15 @@
 @import 'variables';
 
 .welcome-screen {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
     font-family: 'Nunito', sans-serif;
     background: #fff;
-    min-height: 100vh;
+
+    overflow: hidden;
 
     .full-height {
         height: calc(100vh - 55px);
@@ -59,30 +65,35 @@
 
     .links {
         opacity: 0;
-        margin-top: -50px;
-        animation: welcome--links 2s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
-    }
+        margin-top: -115px;
+        animation: welcome--links 3s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
 
-    .links > a {
-        color: $text-color;
-        padding: 0 25px;
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: .3s;
+        > p {
+            margin-bottom: 40px;
+        }
 
-        &:hover {
-            color: $logo-secondary;
+        > a {
+            color: $text-color;
+            padding: 0;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: .3s;
+
+            &:hover {
+                color: $logo-secondary;
+            }
         }
     }
 
-    .m-b-md {
-        margin-bottom: 30px;
-    }
-
     .footer-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
         text-align: center;
         color: $text-color;
         opacity: 0;
@@ -92,18 +103,6 @@
             color: $text-color;
         }
     }
-
-    //&:active,
-    //&:focus {
-    //    .logo,
-    //    .title,
-    //    .title text,
-    //    .links,
-    //    .footer-text {
-    //        animation-duration: 0s;
-    //        animation-delay: 0s;
-    //    }
-    //}
 }
 
 @keyframes welcome--logo {
@@ -145,12 +144,12 @@
 
 @keyframes welcome--svg-text-fill {
     0% {
-        stroke-dasharray: 0 500;
-        stroke-dashoffset: -400;
+        stroke-dasharray: 0 300;
+        stroke-dashoffset: -300;
     }
     85% {
         stroke-dashoffset: 0;
-        stroke-dasharray: 500 0;
+        stroke-dasharray: 300 0;
     }
     0%, 90% {
         fill: transparent;
@@ -165,11 +164,11 @@
 @keyframes welcome--links {
     0% {
         opacity: 0;
-        margin-top: -50px;
+        margin-top: -115px;
     }
     100% {
         opacity: 1;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 }
 

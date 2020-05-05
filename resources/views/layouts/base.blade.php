@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div id="app" class="layout">
+    <div id="app" class="@yield('app-class', 'layout')">
 
         @if (session()->has('success'))
             <div class="container">

@@ -1,12 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
-@section('nav')
-    <!-- navigation hidden -->
-@endsection
+@section('app-class', '')
 
-@section('content')
+@section('main')
 
-    <div class="welcome-screen" tabindex="-1">
+    <div class="welcome-screen">
         <div class="position-ref full-height">
 
             <div class="content">
@@ -25,33 +23,28 @@
                         class="title"
                         viewBox="0 0 500 150"
                     >
-                        <text y="64">Welcome,</text>
-                        @auth
-                            <text y="128">{{ \Auth::user()->name }}</text>
-                        @else
-                            <text y="128">Dear Reader</text>
-                        @endauth
+                        <text y="64">Привіт,</text>
+                        <text y="128">{{ \Auth::user()->name }}</text>
                     </svg>
 
                     <div class="links">
-                        @if (Route::has('login'))
-                            @auth
-                                <a href="{{ route('topic.index') }}">Let's communicate</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Register</a>
-                                @endif
-                            @endauth
-                        @endif
+                        <p>
+                            В нашого кота є 2 справи: прочитати книжку та поспілкуватись із вами. <br>
+                            Книжку він вже прочитав, тож…
+                        </p>
+                        <a href="{{ route('topic.index') }}">
+                            Перейти до форуму
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
         </div>
         <p class="footer-text">
-            Created with LOVE by <a href="https://www.instagram.com/littlewarmtalks/" target="_blank">Anormous Human</a>
+            Дипломний проект <br>
+            Студентки 452 групи <br>
+            Саржан Ганни
         </p>
     </div>
 

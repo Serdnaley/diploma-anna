@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
 
         factory(\App\User::class)->create([
-            'name' => 'Анна Саржан',
+            'name' => 'Ганна Саржан',
             'role' => 'admin',
             'email' => 'admin@admin.com',
         ]);
