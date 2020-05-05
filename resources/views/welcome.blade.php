@@ -23,7 +23,7 @@
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="title"
-                        viewBox="0 0 500 128"
+                        viewBox="0 0 500 150"
                     >
                         <text y="64">Welcome,</text>
                         @auth

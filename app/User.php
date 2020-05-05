@@ -47,10 +47,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
-        'role', 
-        'color', 
+        'name',
+        'email',
+        'role',
+        'color',
         'password',
     ];
 
@@ -112,8 +112,8 @@ class User extends Authenticatable
         $words = preg_split("/[\s,_-]+/", $this->name);
         $initials = '';
 
-        if (isset($words[0])) $initials .= mb_strtoupper($words[0][0]);
-        if (isset($words[1])) $initials .= mb_strtoupper($words[1][0]);
+        if (isset($words[0])) $initials .= mb_strtoupper(mb_substr($words[0], 0, 1));
+        if (isset($words[1])) $initials .= mb_strtoupper(mb_substr($words[1], 0, 1));
 
         return $initials;
     }

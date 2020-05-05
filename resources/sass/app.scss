@@ -198,3 +198,8 @@ a {
 .message-list {
     min-height: calc(100vh - 500px);
 }
+
+.invalid-feedback {
+    font-size: 14px;
+    color: $danger;
+}
