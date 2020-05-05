@@ -57,8 +57,12 @@ textarea {
     outline: none !important;
     border: none;
 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
     text-decoration: none !important;
 
+    font: inherit;
     font-size: 16px;
     padding: 7px 15px;
     background: $light;
