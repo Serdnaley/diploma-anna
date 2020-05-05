@@ -1,5 +1,8 @@
 <div class="comment">
-    <div class="comment__avatar">
+    <a
+        class="comment__avatar"
+        href="{{ route('user.show', ['user' => $comment->author]) }}"
+    >
         <div class="user-avatar user-avatar--{{ $comment->author->color }} mt-1">
             <div class="user-avatar__initials">
                 {{ $comment->author->initials }}
@@ -9,7 +12,10 @@
 
     <div class="comment__body">
         <div class="comment__title">
-            <div class="comment__author color-{{ $comment->author->color }}">
+            <a
+                class="comment__author color-{{ $comment->author->color }}"
+                href="{{ route('user.show', ['user' => $comment->author]) }}"
+            >
                 {{ $comment->author->name }}
             </div>
             <div class="comment__actions">

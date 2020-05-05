@@ -24,7 +24,7 @@ class ChatController extends Controller
 
         $chats = Chat::with(['author'])
             ->orderBy('created_at', 'desc')
-            ->paginate();
+            ->get();
 
         return view('chat.index', [
             'chats' => $chats,
@@ -82,11 +82,16 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
+        $chats = Chat::with(['author'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $chat->load(['author']);
         $messages = Message::with(['author'])->where('chat_id', $chat->id)->get();
 
         return view('chat.show', [
-            'chat' => $chat,
+            'current_chat' => $chat,
+            'chats' => $chats,
             'messages' => $messages,
         ]);
     }

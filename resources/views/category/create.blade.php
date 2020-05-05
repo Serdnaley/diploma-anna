@@ -28,7 +28,7 @@
                 <label for="category-create-name">Name</label>
                 <input
                     type="text"
-                    class="d-block w-100"
+                    class="form-control"
                     id="category-create-name"
                     placeholder="Category name"
                     name="name"

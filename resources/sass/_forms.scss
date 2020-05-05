@@ -10,7 +10,7 @@ input,
 select,
 textarea {
     display: inline-block;
-    height: 40px;
+    min-height: 40px;
     font-size: 16px;
     padding: 10px 0;
     outline: none !important;
@@ -21,7 +21,6 @@ textarea {
     border-bottom: 3px solid $light;
     transition: border-color .3s;
 
-    min-height: calc(1em + 20px);
     resize: vertical;
 
     &:hover {
@@ -40,6 +39,11 @@ textarea {
         font-size: 14px;
         color: $secondary;
     }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
 }
 
 .btn {

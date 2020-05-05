@@ -145,8 +145,39 @@ a {
 }
 
 .select-users-list {
-    max-height: 300px;
-    overflow-y: auto;
+    position: relative;
+    height: 300px;
+
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &:before {
+        top: 0;
+        background: linear-gradient(to bottom, white, transparent);
+    }
+
+    &:after {
+        bottom: 0;
+        background: linear-gradient(to top, white, transparent);
+    }
+
+    .wrapper {
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 30px 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .list {
@@ -162,4 +193,8 @@ a {
 .dot-divider {
     margin: 0 1em;
     color: $light;
+}
+
+.message-list {
+    min-height: calc(100vh - 500px);
 }

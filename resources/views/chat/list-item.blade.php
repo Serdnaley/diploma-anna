@@ -1,32 +1,13 @@
-<div class="card mb-3">
-    <div class="card-body">
-        <div class="d-flex justify-content-between">
-            <div>
-                <a href="{{ route('chat.show', ['chat' => $chat]) }}">
-                    <h5 class="card-title">
-                        {{ $chat->title }}
-                    </h5>
-                </a>
-                <p class="card-text">
-                    <span title="{{ $chat->created_at->format('d.m.Y H:i:s') }}">
-                        {{ $chat->created_at->format('j F, Y') }}
-                    </span>
-                    <span class="text-muted">by</span>
-                    <a href="{{ route('user.show', ['user' => $chat->author]) }}">
-                        {{ $chat->author->name }}
-                    </a>
-                </p>
-            </div>
-            <div>
-                @if(Gate::allows('update', $chat))
-                    <a href="{{ route('chat.edit', ['chat' => $chat]) }}" class="btn btn-link">
-                        Edit chat
-                    </a>
-                @endif
-                <a href="{{ route('chat.show', ['chat' => $chat]) }}" class="btn btn-primary">
-                    View chat
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<a
+    href="{{ route('chat.show', ['chat' => $chat]) }}"
+    class="d-block p-3 mt-3 {{ isset($current_chat) && $current_chat->id === $chat->id ? 'bg-light' : '' }}"
+>
+    <h3 class="my-1">
+        {{ $chat->title }}
+    </h3>
+    <span class="color-secondary"></span>
+    <span title="{{ $chat->created_at->format('d.m.Y H:i:s') }}">
+        {{ $chat->created_at->format('j F, Y') }}
+    </span>
+    by {{ $chat->author->name }}
+</a>

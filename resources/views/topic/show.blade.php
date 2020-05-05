@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <h3>Users</h3>
+                    <h3>Users in topic ({{ count($users) }})</h3>
 
                     @foreach($users as $user)
                         <a

@@ -25,7 +25,7 @@
                 <label for="topic-create-title">Title</label>
                 <input
                     type="text"
-                    class="d-block w-100"
+                    class="form-control"
                     id="topic-create-title"
                     placeholder="Title"
                     name="title"
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label for="topic-create-category">Category</label>
                 <select
-                    class="d-block w-100"
+                    class="form-control"
                     id="topic-create-category"
                     name="category_id"
                     required
