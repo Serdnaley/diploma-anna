@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.form')
 
 @section('content')
 
@@ -11,11 +11,11 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>Edit user</h1>
-            </div>
-            <div class="col-auto">
+        <div class="layout-title">
+
+            <h1>Edit user</h1>
+
+            <div class="">
                 @can('delete', $user)
                     <confirm-action
                         @confirm="$refs['form-user-delete'].submit()"

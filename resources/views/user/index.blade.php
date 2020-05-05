@@ -2,17 +2,10 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container layout-sidebar">
 
-        <div class="row align-items-center mt-5">
-            <div class="col">
-                <h1>All users</h1>
-            </div>
-            <div class="col-auto">
-                <a href="{{ route('user.create') }}" class="btn btn-link">
-                    Create user
-                </a>
-            </div>
+        <div class="layout-title">
+            <h1>All users</h1>
         </div>
 
         <hr>

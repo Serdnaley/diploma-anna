@@ -1,4 +1,4 @@
-@if($disable_link)
+@if(isset($disable_link) && $disable_link)
     <div class="d-flex mb-3">
 @else
     <a
@@ -17,4 +17,4 @@
         </div>
         @yield('after-name')
     </div>
-@if($disable_link)</div>@else</a>@endif
+@if(isset($disable_link) && $disable_link)</div>@else</a>@endif

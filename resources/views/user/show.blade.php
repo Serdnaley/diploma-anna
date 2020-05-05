@@ -11,11 +11,11 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>{{ $user->name }}</h1>
-            </div>
-            <div class="col-auto">
+        <div class="layout-title">
+
+            <h1>{{ $user->name }}</h1>
+
+            <div class="">
                 @can('delete', $user)
                     <confirm-action
                         @confirm="$refs['form-user-delete'].submit()"
@@ -54,15 +54,17 @@
 
         <hr>
 
-        @if ($topics->isEmpty())
-            <p>
-                No topics yet :(
-            </p>
-        @endif
+        <div class="list">
+            @if ($topics->isEmpty())
+                <p>
+                    No topics yet :(
+                </p>
+            @endif
 
-        @foreach($topics as $topic)
-            @include('topic.list-item', ['topic' => $topic])
-        @endforeach
+            @foreach($topics as $topic)
+                @include('topic.list-item', ['topic' => $topic])
+            @endforeach
+        </div>
 
         <form
             action="{{ route('user.destroy', ['user' => $user]) }}"

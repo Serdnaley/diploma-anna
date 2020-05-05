@@ -11,7 +11,7 @@
             </a>
         </div>
 
-        <div class="row align-items-center">
+        <div class="layout-title">
             <div class="col">
                 <h1>Edit message</h1>
             </div>
