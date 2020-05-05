@@ -8,7 +8,7 @@
                 {{ $comment->author->initials }}
             </div>
         </div>
-    </div>
+    </a>
 
     <div class="comment__body">
         <div class="comment__title">
@@ -17,7 +17,7 @@
                 href="{{ route('user.show', ['user' => $comment->author]) }}"
             >
                 {{ $comment->author->name }}
-            </div>
+            </a>
             <div class="comment__actions">
                 @can('update', $comment)
                     <a href="{{ route('comment.edit', ['comment' => $comment]) }}">
