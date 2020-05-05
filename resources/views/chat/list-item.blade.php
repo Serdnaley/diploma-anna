@@ -6,8 +6,9 @@
         {{ $chat->title }}
     </h3>
     <span class="color-secondary"></span>
-    <span title="{{ $chat->created_at->format('d.m.Y H:i:s') }}">
-        {{ $chat->created_at->format('j F, Y') }}
+    <span title="{{ $chat->created_at->isoFormat('Do MMMM YYYY') }}">
+        Створено {{ $chat->created_at->ago() }}
     </span>
-    by {{ $chat->author->name }}
+    <br>
+    Автор: {{ $chat->author->name }}
 </a>

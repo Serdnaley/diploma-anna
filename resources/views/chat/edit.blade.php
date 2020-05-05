@@ -7,28 +7,28 @@
         <div class="my-4">
             <a href="{{ route('chat.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
 
         <div class="layout-title">
 
-            <h1>Edit chat</h1>
+            <h1>Редагувати</h1>
 
             <div class="layout-title__actions">
                 @can('delete', $chat)
                     <confirm-action
                         @confirm="$refs['form-chat-delete'].submit()"
-                        title="Are you sure want to delete '{{ $chat->title }}'?"
+                        title="Ви дійсно хочете видалити '{{ $chat->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
-                            Delete chat
+                            Видалити
                         </div>
                     </confirm-action>
                 @endcan
                 <a href="{{ route('chat.show', ['chat' => $chat]) }}" class="btn btn-primary">
-                    View chat
+                    Перейти до діалогу
                 </a>
             </div>
         </div>
@@ -40,7 +40,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="chat-create-title">Title</label>
+                <label for="chat-create-title">Заголовок</label>
                 <input
                     type="text"
                     class="form-control"
@@ -52,18 +52,29 @@
             </div>
 
             <div class="form-group">
-                <label>User</label>
+                <label>Користувачі</label>
                 <div class="select-users-list">
                     <div class="wrapper">
                         @foreach($users as $user)
-                            <label class="d-flex">
+                            <label class="d-flex align-items-center mb-3">
                                 <input
                                     type="checkbox"
                                     name="user_ids[]"
                                     value="{{ $user->id }}"
                                     {{ array_search($user->id, $chat->user_ids) ? 'checked' : '' }}
                                 >
-                                @include('user.list-item', ['user' => $user, 'disable_link' => true])
+                                <div class="d-flex ml-2">
+                                    <div class="user-avatar user-avatar--{{ $user->color }}">
+                                        <div class="user-avatar__initials">
+                                            {{ $user->initials }}
+                                        </div>
+                                    </div>
+                                    <div class="user-avatar__name">
+                                        <div class="color-{{ $user->color }}">
+                                            {{ $user->name }}
+                                        </div>
+                                    </div>
+                                </div>
                             </label>
                         @endforeach
                     </div>
@@ -80,7 +91,9 @@
                 </div>
             @endif
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">
+                Зберегти
+            </button>
         </form>
 
         <form

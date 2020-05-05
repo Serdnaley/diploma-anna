@@ -10,6 +10,6 @@ $factory->define(Topic::class, function (Faker $faker) {
         'title' => $faker->realText(50),
         'author_id' => 0,
         'category_id' => 0,
-        'created_at' => $faker->dateTime(),
+        'created_at' => $faker->dateTimeBetween('-2 years'),
     ];
 });

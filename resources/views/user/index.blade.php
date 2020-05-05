@@ -2,17 +2,19 @@
 
 @section('content')
 
-    <div class="container layout-sidebar">
+    <div class="container">
 
         <div class="layout-title">
-            <h1>All users</h1>
+            <h1>Усі користувачі</h1>
         </div>
 
         <hr>
 
-        @foreach($users as $user)
-            @include('user.list-item', ['user' => $user])
-        @endforeach
+        <div class="list mt-4 mb-1">
+            @foreach($users as $user)
+                @include('user.list-item', ['user' => $user])
+            @endforeach
+        </div>
 
         <hr>
 

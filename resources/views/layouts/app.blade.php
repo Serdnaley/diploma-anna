@@ -11,16 +11,16 @@
 
         <ul class="layout-header__nav">
             <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'topic.index' ? 'active' : '' }}">
-                <a href="{{ route('topic.index') }}" class="nav-link">Topics</a>
+                <a href="{{ route('topic.index') }}" class="nav-link">Теми</a>
             </li>
             <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'category.index' ? 'active' : '' }}">
-                <a href="{{ route('category.index') }}" class="nav-link">Categories</a>
+                <a href="{{ route('category.index') }}" class="nav-link">Категорії</a>
             </li>
             <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'user.index' ? 'active' : '' }}">
-                <a href="{{ route('user.index') }}" class="nav-link">Users</a>
+                <a href="{{ route('user.index') }}" class="nav-link">Користувачі</a>
             </li>
             <li class="layout-header__nav-item {{ \Route::currentRouteName() === 'chat.index' ? 'active' : '' }}">
-                <a href="{{ route('chat.index') }}" class="nav-link">Chats</a>
+                <a href="{{ route('chat.index') }}" class="nav-link">Діалоги</a>
             </li>
         </ul>
 
@@ -29,15 +29,15 @@
             @auth
 
                 <div class="user-avatar__name">
-                    <div class="color-{{ \Auth::user()->color }}">
+                    <h2 class="color-{{ \Auth::user()->color }} mb-1">
                         {{ \Auth::user()->name }}
-                    </div>
+                    </h2>
                     <confirm-action
                         @confirm="$refs['form-logout'].submit()"
-                        title="Are you sure want to logout?"
+                        title="Ви дійсно хочете вийти з системи?"
                     >
                         <div class="btn-link">
-                            Logout
+                            Вийти з акаунту
                         </div>
                     </confirm-action>
                 </div>

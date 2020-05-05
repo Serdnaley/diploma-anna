@@ -7,13 +7,13 @@
         <div class="my-4">
             <a href="{{ route('chat.show', ['chat' => $chat]) }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to chat
+                Повернутися до діалогу
             </a>
         </div>
 
         <div class="layout-title">
             <div class="col">
-                <h1>Edit message</h1>
+                <h1>Редагувати повідомлення</h1>
             </div>
         </div>
 
@@ -29,15 +29,15 @@
                 <textarea
                     name="text"
                     class="form-control"
-                    placeholder="Write your message here..."
+                    placeholder="Текст вашого повідомлення"
                     cols="10"
                     rows="3"
                     required
                 >{{ $message->text }}</textarea>
             </div>
+
             <button type="submit" class="btn btn-primary">
-                <i class="fas fa-check"></i>
-                Save
+                Зберегти
             </button>
 
             @if ($errors->any())

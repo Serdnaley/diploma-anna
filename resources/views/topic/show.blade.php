@@ -10,7 +10,7 @@
             <div class="layout-back-btn">
                 <a href="{{ route('topic.index') }}" class="btn">
                     <i class="fas fa-arrow-left"></i>
-                    Back to list
+                    Повернутися до списку
                 </a>
             </div>
 
@@ -22,16 +22,16 @@
                     @can('delete', $topic)
                         <confirm-action
                             @confirm="$refs['form-topic-delete'].submit()"
-                            title="Are you sure want to delete '{{ $topic->title }}'?"
+                            title="Ви дійсно хочете видалити '{{ $topic->title }}'?"
                         >
                             <div class="btn btn-link text-danger" slot="reference">
-                                Delete topic
+                                Видалити тему
                             </div>
                         </confirm-action>
                     @endcan
                     @can('update', $topic)
                         <a href="{{ route('topic.edit', ['topic' => $topic]) }}" class="btn btn-primary ml-3">
-                            Edit topic
+                            Редагувати тему
                         </a>
                     @endcan
                 </div>
@@ -62,7 +62,7 @@
                     <textarea
                         name="text"
                         class="w-100"
-                        placeholder="Write your comment here..."
+                        placeholder="Текст вашого коментаря"
                         cols="10"
                         rows="5"
                         required
@@ -72,7 +72,7 @@
                         type="submit"
                         class="btn btn-primary mt-3"
                     >
-                        Submit
+                        Відправити
                         <i class="fas fa-arrow-up"></i>
                     </button>
 
@@ -90,7 +90,7 @@
             </div>
             <div class="layout-sidebar">
 
-                <h3>Author</h3>
+                <h3>Автор</h3>
 
                 <a
                     class="d-flex align-items-center mb-5"
@@ -106,13 +106,13 @@
                             <div class="color-{{ $topic->author->color }}">
                                 {{ $topic->author->name }}
                             </div>
-                            <small class="mt-1">{{ $topic->created_at->format('j F, Y') }}</small>
+                            <small class="mt-1">{{ $topic->created_at->format('d.m.Y') }}</small>
                         </div>
                     </div>
                 </a>
 
                 <div class="mb-5">
-                    <h3>Category:</h3>
+                    <h3>Категорія:</h3>
                     <a
                         href="{{ route('category.show', ['category' => $topic->category]) }}"
                         class="btn"
@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <h3>Users in topic ({{ count($users) }})</h3>
+                    <h3>Учасники обговорення ({{ count($users) }})</h3>
 
                     @foreach($users as $user)
                         <a

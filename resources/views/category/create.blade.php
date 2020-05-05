@@ -7,12 +7,12 @@
         <div class="my-4">
             <a href="{{ route('category.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
         <div class="layout-title">
-            <h1>Create topic category</h1>
+            <h1>Створити категорію</h1>
         </div>
 
         <hr>
@@ -25,12 +25,12 @@
             @method('POST')
 
             <div class="form-group">
-                <label for="category-create-name">Name</label>
+                <label for="category-create-name">Ім'я</label>
                 <input
                     type="text"
                     class="form-control"
                     id="category-create-name"
-                    placeholder="Category name"
+                    placeholder="Назва категорії"
                     name="name"
                     required
                 >
@@ -50,7 +50,7 @@
                 type="submit"
                 class="btn btn-primary"
             >
-                Create category
+                Створити категорію
             </button>
         </form>
 

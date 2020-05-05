@@ -7,12 +7,12 @@
         <div class="my-4">
             <a href="{{ route('topic.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
         <div class="layout-title">
-            <h1>Create topic</h1>
+            <h1>Створити тему</h1>
         </div>
 
         <hr>
@@ -22,19 +22,18 @@
             @method('POST')
 
             <div class="form-group">
-                <label for="topic-create-title">Title</label>
+                <label for="topic-create-title">Заголовок</label>
                 <input
                     type="text"
                     class="form-control"
                     id="topic-create-title"
-                    placeholder="Title"
                     name="title"
                     required
                 >
             </div>
 
             <div class="form-group">
-                <label for="topic-create-category">Category</label>
+                <label for="topic-create-category">Категорія</label>
                 <select
                     class="form-control"
                     id="topic-create-category"
@@ -59,7 +58,9 @@
                 </div>
             @endif
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">
+                Створити
+            </button>
         </form>
 
     </div>

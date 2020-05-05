@@ -6,12 +6,12 @@
 
         <div class="layout-title">
 
-            <h1>All categories</h1>
+            <h1>Усі категорії</h1>
 
             <div class="layout-title__actions">
                 @if(Gate::allows('create', 'App\TopicCategory'))
                     <a href="{{ route('category.create') }}">
-                        Create category
+                        Створити категорію
                     </a>
                 @endif
             </div>

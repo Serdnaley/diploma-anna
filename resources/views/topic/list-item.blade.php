@@ -10,18 +10,18 @@
             <a href="{{ route('topic.show', ['topic' => $topic]) }}"  class="card__title">
                 {{ $topic->title }}
             </a>
-            <span class="color-secondary">Author:</span>
+            <span class="color-secondary">Автор:</span>
             <a href="{{ route('user.show', ['user' => $topic->author]) }}">
                 {{ $topic->author->name }}
             </a>
 
             <div class="card__info">
-                <span class="color-secondary">Created at:</span>
-                <span title="{{ $topic->created_at->format('d.m.Y H:i:s') }}">
-                    {{ $topic->created_at->format('j F, Y') }}
+                <span class="color-secondary">Створено </span>
+                <span title="{{ $topic->created_at->isoFormat('Do MMMM YYYY') }}">
+                    {{ $topic->created_at->ago() }}
                 </span>
                 <br>
-                <span class="color-secondary">Category:</span>
+                <span class="color-secondary">Категорія:</span>
                 <a href="{{ route('category.show', ['category' => $topic->category]) }}">
                     {{ $topic->category->name }}
                 </a>
@@ -33,14 +33,14 @@
             href="{{ route('topic.show', ['topic' => $topic]) }}"
             class="btn btn-primary"
         >
-            View topic
+            Перейти до теми
         </a>
         @if(Gate::allows('update', $topic))
             <a
                 href="{{ route('topic.edit', ['topic' => $topic]) }}"
                 class="btn"
             >
-                Edit topic
+                Редагувати тему
             </a>
         @endif
     </p>

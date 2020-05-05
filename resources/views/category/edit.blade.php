@@ -7,27 +7,27 @@
         <div class="my-4">
             <a href="{{ route('category.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
         <div class="layout-title">
 
-            <h1>Edit category</h1>
+            <h1>Редагувати</h1>
 
             <div class="layout-title__actions">
                 @can('delete', $category)
                     <confirm-action
                         @confirm="$refs['form-category-delete'].submit()"
-                        title="Are you sure want to delete '{{ $category->title }}'?"
+                        title="Ви дійсно хочете видалити '{{ $category->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
-                            Delete category
+                            Видалити
                         </div>
                     </confirm-action>
                 @endcan
                 <a href="{{ route('category.show', ['category' => $category]) }}" class="btn btn-primary">
-                    View category
+                    Перейти
                 </a>
             </div>
         </div>
@@ -43,7 +43,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="category-create-name">Name</label>
+                <label for="category-create-name">Ім'я</label>
                 <input
                     type="text"
                     class="form-control"
@@ -68,8 +68,7 @@
                 type="submit"
                 class="btn btn-primary"
             >
-                Save
-                <i class="fas fa-check"></i>
+                Зберегти
             </button>
         </form>
 

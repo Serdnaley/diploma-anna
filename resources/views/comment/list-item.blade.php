@@ -21,7 +21,7 @@
             <div class="comment__actions">
                 @can('update', $comment)
                     <a href="{{ route('comment.edit', ['comment' => $comment]) }}">
-                        Edit
+                        Редагувати
                     </a>
                 @endcan
                 @can('delete', $comment)
@@ -34,10 +34,10 @@
                             );
                             $refs['form-topic-delete'].submit();
                             }"
-                        title="Are you sure want to delete comment of {{ $comment->author->name }}?"
+                        title="Ви дійсно хочете видалити коментар від {{ $comment->author->name }}?"
                     >
                         <a href="#" class="text-danger" slot="reference">
-                            Delete
+                            Видалити
                         </a>
                     </confirm-action>
                 @endcan

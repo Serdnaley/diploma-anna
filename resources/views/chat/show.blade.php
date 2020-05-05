@@ -7,7 +7,9 @@
         <div class="message-list mt-3">
 
             @if($messages->isEmpty())
-                <p class="color-secondary my-5" style="margin-left: 55px;">Your message will be first :)</p>
+                <p class="color-secondary my-5" style="margin-left: 55px;">
+                    Ваше повідомлення буде першим :)
+                </p>
             @endif
 
             @foreach($messages as $message)
@@ -26,7 +28,7 @@
                 <textarea
                     name="text"
                     class="form-control"
-                    placeholder="Message..."
+                    placeholder="Текст вашого повідомлення"
                     cols="10"
                     rows="3"
                     required
@@ -34,7 +36,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Submit
+                Відправити
                 <i class="fas fa-arrow-up"></i>
             </button>
 

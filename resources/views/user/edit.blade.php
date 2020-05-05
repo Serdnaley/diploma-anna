@@ -7,27 +7,27 @@
         <div class="my-4">
             <a href="{{ route('user.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
         <div class="layout-title">
 
-            <h1>Edit user</h1>
+            <h1>Редагувати</h1>
 
             <div class="">
                 @can('delete', $user)
                     <confirm-action
                         @confirm="$refs['form-user-delete'].submit()"
-                        title="Are you sure want to delete '{{ $user->title }}'?"
+                        title="Ви дійсно хочете видалити '{{ $user->name }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
-                            Delete user
+                            Видалити
                         </div>
                     </confirm-action>
                 @endcan
                 <a href="{{ route('user.show', ['user' => $user]) }}" class="btn btn-primary">
-                    View user
+                    Перейти до профілю
                 </a>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="user-create-name">Name</label>
+                        <label for="user-create-name">Ім'я</label>
                         <input
                             type="text"
                             class="form-control"
@@ -62,7 +62,9 @@
                         </div>
                     @endif
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">
+                        Зберегти
+                    </button>
                 </form>
             </div>
         </div>

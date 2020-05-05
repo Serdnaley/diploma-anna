@@ -7,13 +7,13 @@
         <div class="my-4">
             <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to topic
+                Повернутися до обговорення
             </a>
         </div>
 
         <div class="layout-title">
             <div class="col">
-                <h1>Edit comment</h1>
+                <h1>Редагувати коментар</h1>
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             <textarea
                 name="text"
                 class="w-100"
-                placeholder="Write your comment here..."
+                placeholder="Текст вашого коментаря"
                 cols="10"
                 rows="5"
                 required
@@ -38,8 +38,7 @@
                 type="submit"
                 class="btn btn-primary mt-3"
             >
-                <i class="fas fa-check"></i>
-                Save
+                Зберегти
             </button>
 
             @if ($errors->any())

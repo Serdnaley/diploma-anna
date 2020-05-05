@@ -6,12 +6,12 @@
 
         <div class="layout-title">
 
-            <h1>All topics</h1>
+            <h1>Усі теми</h1>
 
             <div class="layout-title__actions">
                 @if(Gate::allows('create', 'App\Topic'))
                     <a href="{{ route('topic.create') }}">
-                        Create topic
+                        Створити тему
                     </a>
                 @endif
             </div>

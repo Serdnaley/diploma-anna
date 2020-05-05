@@ -7,26 +7,26 @@
         <div class="my-4">
             <a href="{{ route('topic.index') }}" class="btn-link">
                 <i class="fas fa-arrow-left"></i>
-                Back to list
+                Повернутися до списку
             </a>
         </div>
 
         <div class="layout-title">
-            <h1>Edit topic</h1>
+            <h1>Редагувати тему</h1>
 
             <div class="layout-title__actions">
                 @can('delete', $topic)
                     <confirm-action
                         @confirm="$refs['form-topic-delete'].submit()"
-                        title="Are you sure want to delete '{{ $topic->title }}'?"
+                        title="Ви дійсно хочете видалити '{{ $topic->title }}'?"
                     >
                         <div class="btn btn-link text-danger" slot="reference">
-                            Delete topic
+                            Видалити тему
                         </div>
                     </confirm-action>
                 @endcan
                 <a href="{{ route('topic.show', ['topic' => $topic]) }}" class="btn btn-primary">
-                    View topic
+                    Перейти до теми
                 </a>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     @method('PUT')
 
                     <div class="form-group">
-                        <label for="topic-create-title">Title</label>
+                        <label for="topic-create-title">Заголовок</label>
                         <input
                             type="text"
                             class="form-control"
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="topic-create-category">Category</label>
+                        <label for="topic-create-category">Категорія</label>
                         <select
                             class="form-control"
                             id="topic-create-category"
@@ -78,12 +78,8 @@
                         </div>
                     @endif
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        Save
-                        <i class="fas fa-check"></i>
+                    <button type="submit" class="btn btn-primary">
+                        Зберегти
                     </button>
                 </form>
             </div>
