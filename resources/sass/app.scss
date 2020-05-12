@@ -4,9 +4,6 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-
 // Fontawesome
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
@@ -53,45 +50,6 @@ a {
 .container {
     max-width: 1200px;
     margin: auto;
-}
-
-@each $index,$color in (
-    'indigo': $indigo,
-    'purple': $purple,
-    'red': $red,
-
-    'primary': $primary,
-    'secondary': $secondary,
-    'success': $success,
-    'info': $info,
-    'warning': $warning,
-    'danger': $danger,
-    'light': $light,
-    'dark': $dark,
-) {
-    .bg-#{$index} {
-        background: $color;
-    }
-    .color-#{$index} {
-        color: $color;
-    }
-}
-
-@each $index,$color in (
-    'blue': $blue,
-    'pink': $pink,
-    'orange': $orange,
-    'yellow': $yellow,
-    'green': $green,
-    'teal': $teal,
-    'cyan': $cyan,
-) {
-    .bg-#{$index} {
-        background: $color;
-    }
-    .color-#{$index} {
-        color: darken($color, 30);
-    }
 }
 
 .user-avatar {
