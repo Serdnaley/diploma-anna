@@ -6,7 +6,7 @@ hr {
     background: $gray-200;
 }
 
-input,
+input:not([type=checkbox]):not([type=radio]),
 select,
 textarea {
     display: inline-block;
