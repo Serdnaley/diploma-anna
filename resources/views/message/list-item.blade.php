@@ -28,12 +28,12 @@
                     <span class="text-secondary mx-2">&bull;</span>
                     <confirm-action
                         @confirm="function () {
-                            $refs['form-topic-delete'].setAttribute(
-                            'action',
-                            '{{ route('message.destroy', ['message' => $message]) }}'
+                            $refs['form-message-delete'].setAttribute(
+                                'action',
+                                '{{ route('message.destroy', ['message' => $message]) }}'
                             );
-                            $refs['form-topic-delete'].submit();
-                            }"
+                            $refs['form-message-delete'].submit();
+                        }"
                         title="Ви дійсно хочете видалити повідомленя від {{ $message->author->name }}?"
                     >
                         <a href="#" class="text-danger" slot="reference">
