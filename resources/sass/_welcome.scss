@@ -64,15 +64,17 @@
     }
 
     .links {
-        opacity: 0;
         margin-top: -115px;
         animation: welcome--links 3s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
 
         > p {
+            opacity: 0;
             margin-bottom: 40px;
+            animation: welcome--links-p 3s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
         }
 
         > a {
+            display: inline-block;
             color: $text-color;
             padding: 0;
             font-size: 22px;
@@ -81,6 +83,9 @@
             text-decoration: none;
             text-transform: uppercase;
             transition: .3s;
+            transform: translateY(30vh);
+            opacity: .3;
+            animation: welcome--links-a 3s 10s cubic-bezier(0.3, 1, 1, 1) forwards;
 
             &:hover {
                 color: $logo-secondary;
@@ -100,6 +105,7 @@
         animation: welcome--footer 3s 10s cubic-bezier(0.37, 1.29, 1, 1) forwards;
 
         a {
+            opacity: 1 !important;
             color: $text-color;
         }
     }
@@ -169,6 +175,26 @@
     100% {
         opacity: 1;
         margin-top: 30px;
+    }
+}
+
+@keyframes welcome--links-p {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes welcome--links-a {
+    0% {
+        transform: translateY(30vh);
+        opacity: .3;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
