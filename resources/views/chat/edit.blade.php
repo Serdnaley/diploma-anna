@@ -11,7 +11,6 @@
             </a>
         </div>
 
-
         <div class="layout-title">
 
             <h1>Редагувати</h1>
@@ -61,7 +60,7 @@
                                     type="checkbox"
                                     name="user_ids[]"
                                     value="{{ $user->id }}"
-                                    {{ array_search($user->id, $chat->user_ids) ? 'checked' : '' }}
+                                    {{ $chat->users->where('id', $user->id)->isEmpty() ? '' : 'checked' }}
                                 >
                                 <div class="d-flex ml-2">
                                     <div class="user-avatar user-avatar--{{ $user->color }}">

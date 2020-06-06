@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Chat;
 use App\Message;
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -21,8 +22,8 @@ class ChatController extends Controller
      */
     public function index()
     {
-
-        $chats = Chat::with(['author'])
+        $chats = \Auth::user()
+            ->chats()
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -66,8 +67,10 @@ class ChatController extends Controller
         $chat = Chat::create($request->only([
             'title',
             'author_id',
-            'user_ids',
         ]));
+
+        $chat->users()->sync($request->user_ids);
+        $chat->users()->save($chat->author);
 
         return redirect()
             ->route('chat.show', ['chat' => $chat])
@@ -82,7 +85,8 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
-        $chats = Chat::with(['author'])
+        $chats = \Auth::user()
+            ->chats()
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -104,7 +108,7 @@ class ChatController extends Controller
      */
     public function edit(Chat $chat)
     {
-
+        $chat->loadMissing(['users']);
         $users = User::where('id', '!=', \Auth::user()->id)->get();
 
         return view('chat.edit', [
@@ -125,13 +129,16 @@ class ChatController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:255',
-            'user_ids' => 'required|int',
+            'user_ids' => 'required|array',
+            'user_ids.*' => 'required|int',
         ]);
 
         $chat->update($request->only([
-            'title',
-            'user_ids',
+            'title'
         ]));
+
+        $chat->users()->sync($request->user_ids);
+        $chat->users()->save($chat->author);
 
         return redirect()
             ->route('chat.show', ['chat' => $chat])

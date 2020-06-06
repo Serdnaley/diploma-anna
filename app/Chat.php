@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $title
- * @property array $user_ids
  * @property int $author_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -32,16 +31,11 @@ class Chat extends Model
 
     protected $fillable = [
         'title',
-        'user_ids',
         'author_id',
     ];
 
-    protected $casts = [
-        'user_ids' => 'array',
-    ];
-
     public function users() {
-        return $this->hasMany(User::class, 'user_ids');
+        return $this->belongsToMany(User::class);
     }
 
     public function author() {

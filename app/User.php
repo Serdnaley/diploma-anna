@@ -117,4 +117,8 @@ class User extends Authenticatable
 
         return $initials;
     }
+
+    public function chats() {
+        return $this->belongsToMany(Chat::class);
+    }
 }
