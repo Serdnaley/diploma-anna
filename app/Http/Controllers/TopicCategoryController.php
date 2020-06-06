@@ -114,11 +114,13 @@ class TopicCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TopicCategory  $category
+     * @param \App\TopicCategory $category
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(TopicCategory $category)
     {
+        Topic::whereCategoryId($category->id)->delete();
         $category->delete();
 
         return redirect()

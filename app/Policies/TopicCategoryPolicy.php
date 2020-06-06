@@ -75,7 +75,9 @@ class TopicCategoryPolicy
      */
     public function delete(User $user, TopicCategory $category)
     {
-        return false;
+        return $user->has_role([
+            'admin',
+        ]);
     }
 
     /**
